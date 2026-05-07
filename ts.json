@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)http://tauri.localhost/workspaces/wk_ve8aEfFyWD?cookie_jar_id=cj_oGCRohQbt7&request_id=rq_HbkS3gJLEX -->
+<html lang="en" data-platform="windows" data-theme="yaak-dark" style="font-size: 14px; --editor-font-size: 12px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.ͼ1.cm-focused {outline: 1px dotted #212121;}
+.ͼ1 {position: relative !important; box-sizing: border-box; display: flex !important; flex-direction: column;}
+.ͼ1 .cm-scroller {display: flex !important; align-items: flex-start !important; font-family: monospace; line-height: 1.4; height: 100%; overflow-x: auto; position: relative; z-index: 0; overflow-anchor: none;}
+.ͼ1 .cm-content[contenteditable=true] {-webkit-user-modify: read-write-plaintext-only;}
+.ͼ1 .cm-content {margin: 0; flex-grow: 2; flex-shrink: 0; display: block; white-space: pre; word-wrap: normal; box-sizing: border-box; min-height: 100%; padding: 4px 0; outline: none;}
+.ͼ1 .cm-lineWrapping {white-space: pre-wrap; white-space: break-spaces; word-break: break-word; overflow-wrap: anywhere; flex-shrink: 1;}
+.ͼ2 .cm-content {caret-color: black;}
+.ͼ3 .cm-content {caret-color: white;}
+.ͼ1 .cm-line {display: block; padding: 0 2px 0 6px;}
+.ͼ1 .cm-layer > * {position: absolute;}
+.ͼ1 .cm-layer {position: absolute; left: 0; top: 0; contain: size style;}
+.ͼ2 .cm-selectionBackground {background: #d9d9d9;}
+.ͼ3 .cm-selectionBackground {background: #222;}
+.ͼ2.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #d7d4f0;}
+.ͼ3.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #233;}
+.ͼ1 .cm-cursorLayer {pointer-events: none;}
+.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer {animation: steps(1) cm-blink 1.2s infinite;}
+@keyframes cm-blink {50% {opacity: 0;}}
+@keyframes cm-blink2 {50% {opacity: 0;}}
+.ͼ1 .cm-cursor, .ͼ1 .cm-dropCursor {border-left: 1.2px solid black; margin-left: -0.6px; pointer-events: none;}
+.ͼ1 .cm-cursor {display: none;}
+.ͼ3 .cm-cursor {border-left-color: #ddd;}
+.ͼ1 .cm-dropCursor {position: absolute;}
+.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer .cm-cursor {display: block;}
+.ͼ1 .cm-iso {unicode-bidi: isolate;}
+.ͼ1 .cm-announced {position: fixed; top: -10000px;}
+@media print {.ͼ1 .cm-announced {display: none;}}
+.ͼ2 .cm-activeLine {background-color: #cceeff44;}
+.ͼ3 .cm-activeLine {background-color: #99eeff33;}
+.ͼ2 .cm-specialChar {color: red;}
+.ͼ3 .cm-specialChar {color: #f78;}
+.ͼ1 .cm-gutters {flex-shrink: 0; display: flex; height: 100%; box-sizing: border-box; z-index: 200;}
+.ͼ1 .cm-gutters-before {inset-inline-start: 0;}
+.ͼ1 .cm-gutters-after {inset-inline-end: 0;}
+.ͼ2 .cm-gutters.cm-gutters-before {border-right-width: 1px;}
+.ͼ2 .cm-gutters.cm-gutters-after {border-left-width: 1px;}
+.ͼ2 .cm-gutters {background-color: #f5f5f5; color: #6c6c6c; border: 0px solid #ddd;}
+.ͼ3 .cm-gutters {background-color: #333338; color: #ccc;}
+.ͼ1 .cm-gutter {display: flex !important; flex-direction: column; flex-shrink: 0; box-sizing: border-box; min-height: 100%; overflow: hidden;}
+.ͼ1 .cm-gutterElement {box-sizing: border-box;}
+.ͼ1 .cm-lineNumbers .cm-gutterElement {padding: 0 3px 0 5px; min-width: 20px; text-align: right; white-space: nowrap;}
+.ͼ2 .cm-activeLineGutter {background-color: #e2f2ff;}
+.ͼ3 .cm-activeLineGutter {background-color: #222227;}
+.ͼ1 .cm-panels {box-sizing: border-box; position: sticky; left: 0; right: 0; z-index: 300;}
+.ͼ2 .cm-panels {background-color: #f5f5f5; color: black;}
+.ͼ2 .cm-panels-top {border-bottom: 1px solid #ddd;}
+.ͼ2 .cm-panels-bottom {border-top: 1px solid #ddd;}
+.ͼ3 .cm-panels {background-color: #333338; color: white;}
+.ͼ1 .cm-dialog label {font-size: 80%;}
+.ͼ1 .cm-dialog {padding: 2px 19px 4px 6px; position: relative;}
+.ͼ1 .cm-dialog-close {position: absolute; top: 3px; right: 4px; background-color: inherit; border: none; font: inherit; font-size: 14px; padding: 0;}
+.ͼ1 .cm-tab {display: inline-block; overflow: hidden; vertical-align: bottom;}
+.ͼ1 .cm-widgetBuffer {vertical-align: text-top; height: 1em; width: 0; display: inline;}
+.ͼ1 .cm-placeholder {color: #888; display: inline-block; vertical-align: top; user-select: none;}
+.ͼ1 .cm-highlightSpace {background-image: radial-gradient(circle at 50% 55%, #aaa 20%, transparent 5%); background-position: center;}
+.ͼ1 .cm-highlightTab {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="20"><path stroke="%23888" stroke-width="1" fill="none" d="M1 10H196L190 5M190 15L196 10M197 4L197 16"/></svg>'); background-size: auto 100%; background-position: right 90%; background-repeat: no-repeat;}
+.ͼ1 .cm-trailingSpace {background-color: #ff332255;}
+.ͼ1 .cm-button {vertical-align: middle; color: inherit; font-size: 70%; padding: .2em 1em; border-radius: 1px;}
+.ͼ2 .cm-button:active {background-image: linear-gradient(#b4b4b4, #d0d3d6);}
+.ͼ2 .cm-button {background-image: linear-gradient(#eff1f5, #d9d9df); border: 1px solid #888;}
+.ͼ3 .cm-button:active {background-image: linear-gradient(#111, #333);}
+.ͼ3 .cm-button {background-image: linear-gradient(#393939, #111); border: 1px solid #888;}
+.ͼ1 .cm-textfield {vertical-align: middle; color: inherit; font-size: 70%; border: 1px solid silver; padding: .2em .5em;}
+.ͼ2 .cm-textfield {background-color: white;}
+.ͼ3 .cm-textfield {border: 1px solid #555; background-color: inherit;}
+.ͼ1.cm-focused .cm-matchingBracket {background-color: #328c8252;}
+.ͼ1.cm-focused .cm-nonmatchingBracket {background-color: #bb555544;}
+.ͼ1 .cm-foldPlaceholder {background-color: #eee; border: 1px solid #ddd; color: #888; border-radius: .2em; margin: 0 1px; padding: 0 1px; cursor: pointer;}
+.ͼ1 .cm-foldGutter span {padding: 0 1px; cursor: pointer;}
+.ͼ1 .cm-panel.cm-search [name=close] {position: absolute; top: 0; right: 4px; background-color: inherit; border: none; font: inherit; padding: 0; margin: 0;}
+.ͼ1 .cm-panel.cm-search input, .ͼ1 .cm-panel.cm-search button, .ͼ1 .cm-panel.cm-search label {margin: .2em .6em .2em 0;}
+.ͼ1 .cm-panel.cm-search input[type=checkbox] {margin-right: .2em;}
+.ͼ1 .cm-panel.cm-search label {font-size: 80%; white-space: pre;}
+.ͼ1 .cm-panel.cm-search {padding: 2px 6px 4px; position: relative;}
+.ͼ2 .cm-searchMatch {background-color: #ffff0054;}
+.ͼ3 .cm-searchMatch {background-color: #00ffff8a;}
+.ͼ2 .cm-searchMatch-selected {background-color: #ff6a0054;}
+.ͼ3 .cm-searchMatch-selected {background-color: #ff00ff8a;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li, .ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > completion-section {padding: 1px 3px; line-height: 1.2;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li {overflow-x: hidden; text-overflow: ellipsis; cursor: pointer;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > completion-section {display: list-item; border-bottom: 1px solid silver; padding-left: 0.5em; opacity: 0.7;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul {font-family: monospace; white-space: nowrap; overflow: hidden auto; max-width: 700px; max-width: min(700px, 95vw); min-width: 250px; max-height: 10em; height: 100%; list-style: none; margin: 0; padding: 0;}
+.ͼ2 .cm-tooltip-autocomplete ul li[aria-selected] {background: #17c; color: white;}
+.ͼ2 .cm-tooltip-autocomplete-disabled ul li[aria-selected] {background: #777;}
+.ͼ3 .cm-tooltip-autocomplete ul li[aria-selected] {background: #347; color: white;}
+.ͼ3 .cm-tooltip-autocomplete-disabled ul li[aria-selected] {background: #444;}
+.ͼ1 .cm-completionListIncompleteTop:before, .ͼ1 .cm-completionListIncompleteBottom:after {content: "···"; opacity: 0.5; display: block; text-align: center;}
+.ͼ1 .cm-tooltip.cm-completionInfo {position: absolute; padding: 3px 9px; width: max-content; max-width: 400px; box-sizing: border-box; white-space: pre-line;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-left {right: 100%;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-right {left: 100%;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-left-narrow {right: 30px;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-right-narrow {left: 30px;}
+.ͼ2 .cm-snippetField {background-color: #00000022;}
+.ͼ3 .cm-snippetField {background-color: #ffffff22;}
+.ͼ1 .cm-snippetFieldPosition {vertical-align: text-top; width: 0; height: 1.15em; display: inline-block; margin: 0 -0.7px -.7em; border-left: 1.4px dotted #888;}
+.ͼ1 .cm-completionMatchedText {text-decoration: underline;}
+.ͼ1 .cm-completionDetail {margin-left: 0.5em; font-style: italic;}
+.ͼ1 .cm-completionIcon {font-size: 90%; width: .8em; display: inline-block; text-align: center; padding-right: .6em; opacity: 0.6; box-sizing: content-box;}
+.ͼ1 .cm-completionIcon-function:after, .ͼ1 .cm-completionIcon-method:after {content: 'ƒ';}
+.ͼ1 .cm-completionIcon-class:after {content: '○';}
+.ͼ1 .cm-completionIcon-interface:after {content: '◌';}
+.ͼ1 .cm-completionIcon-variable:after {content: '𝑥';}
+.ͼ1 .cm-completionIcon-constant:after {content: '𝐶';}
+.ͼ1 .cm-completionIcon-type:after {content: '𝑡';}
+.ͼ1 .cm-completionIcon-enum:after {content: '∪';}
+.ͼ1 .cm-completionIcon-property:after {content: '□';}
+.ͼ1 .cm-completionIcon-keyword:after {content: '🔑︎';}
+.ͼ1 .cm-completionIcon-namespace:after {content: '▢';}
+.ͼ1 .cm-completionIcon-text:after {content: 'abc'; font-size: 50%; vertical-align: middle;}
+.ͼ1 .cm-gutter-lint .cm-gutterElement {padding: .2em;}
+.ͼ1 .cm-gutter-lint {width: 1.4em;}
+.ͼ1 .cm-lint-marker {width: 1em; height: 1em;}
+.ͼ1 .cm-lint-marker-info {content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">%3Cpath%20fill%3D%22%23aaf%22%20stroke%3D%22%2377e%22%20stroke-width%3D%226%22%20stroke-linejoin%3D%22round%22%20d%3D%22M5%205L35%205L35%2035L5%2035Z%22%2F%3E</svg>');}
+.ͼ1 .cm-lint-marker-warning {content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">%3Cpath%20fill%3D%22%23fe8%22%20stroke%3D%22%23fd7%22%20stroke-width%3D%226%22%20stroke-linejoin%3D%22round%22%20d%3D%22M20%206L37%2035L3%2035Z%22%2F%3E</svg>');}
+.ͼ1 .cm-lint-marker-error {content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2215%22%20fill%3D%22%23f87%22%20stroke%3D%22%23f43%22%20stroke-width%3D%226%22%2F%3E</svg>');}
+.ͼ1 .cm-diagnostic {padding: 3px 6px 3px 8px; margin-left: -1px; display: block; white-space: pre-wrap;}
+.ͼ1 .cm-diagnostic-error {border-left: 5px solid #d11;}
+.ͼ1 .cm-diagnostic-warning {border-left: 5px solid orange;}
+.ͼ1 .cm-diagnostic-info {border-left: 5px solid #999;}
+.ͼ1 .cm-diagnostic-hint {border-left: 5px solid #66d;}
+.ͼ1 .cm-diagnosticAction {font: inherit; border: none; padding: 2px 4px; background-color: #444; color: white; border-radius: 3px; margin-left: 8px; cursor: pointer;}
+.ͼ1 .cm-diagnosticSource {font-size: 70%; opacity: 0.7;}
+.ͼ1 .cm-lintRange {background-position: left bottom; background-repeat: repeat-x; padding-bottom: 0.7px;}
+.ͼ1 .cm-lintRange-error {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22%23d11%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
+.ͼ1 .cm-lintRange-warning {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22orange%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
+.ͼ1 .cm-lintRange-info {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22%23999%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
+.ͼ1 .cm-lintRange-hint {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22%2366d%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
+.ͼ1 .cm-lintRange-active {background-color: #ffdd9980;}
+.ͼ1 .cm-tooltip-lint {padding: 0; margin: 0;}
+.ͼ1 .cm-lintPoint:after {content: ""; position: absolute; bottom: 0; left: -2px; border-left: 3px solid transparent; border-right: 3px solid transparent; border-bottom: 4px solid #d11;}
+.ͼ1 .cm-lintPoint {position: relative;}
+.ͼ1 .cm-lintPoint-warning:after {border-bottom-color: orange;}
+.ͼ1 .cm-lintPoint-info:after {border-bottom-color: #999;}
+.ͼ1 .cm-lintPoint-hint:after {border-bottom-color: #66d;}
+.ͼ1 .cm-panel.cm-panel-lint ul [aria-selected] u {text-decoration: underline;}
+.ͼ1 .cm-panel.cm-panel-lint ul [aria-selected] {background-color: #ddd;}
+.ͼ1 .cm-panel.cm-panel-lint ul:focus [aria-selected] {background: #bdf; background-color: Highlight; color: white; color: HighlightText;}
+.ͼ1 .cm-panel.cm-panel-lint ul u {text-decoration: none;}
+.ͼ1 .cm-panel.cm-panel-lint ul {max-height: 100px; overflow-y: auto; padding: 0; margin: 0;}
+.ͼ1 .cm-panel.cm-panel-lint [name=close] {position: absolute; top: 0; right: 2px; background: inherit; border: none; font: inherit; padding: 0; margin: 0;}
+.ͼ1 .cm-panel.cm-panel-lint {position: relative;}
+.ͼ1 .cm-tooltip {z-index: 500; box-sizing: border-box;}
+.ͼ2 .cm-tooltip {border: 1px solid #bbb; background-color: #f5f5f5;}
+.ͼ2 .cm-tooltip-section:not(:first-child) {border-top: 1px solid #bbb;}
+.ͼ3 .cm-tooltip {background-color: #333338; color: white;}
+.ͼ1 .cm-tooltip-arrow:before, .ͼ1 .cm-tooltip-arrow:after {content: ''; position: absolute; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:before {border-top: 7px solid #bbb;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:after {border-top: 7px solid #f5f5f5; bottom: 1px;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow {bottom: -7px;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:before {border-bottom: 7px solid #bbb;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:after {border-bottom: 7px solid #f5f5f5; top: 1px;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow {top: -7px;}
+.ͼ1 .cm-tooltip-arrow {height: 7px; width: 14px; position: absolute; z-index: -1; overflow: hidden;}
+.ͼ3 .cm-tooltip .cm-tooltip-arrow:before {border-top-color: #333338; border-bottom-color: #333338;}
+.ͼ3 .cm-tooltip .cm-tooltip-arrow:after {border-top-color: transparent; border-bottom-color: transparent;}
+
+.ͼ5 {color: var(--textSubtlest);}
+.ͼ6 {text-decoration: underline;}
+.ͼ7 {color: var(--textSubtle);}
+.ͼ8 {color: var(--info);}
+.ͼ9 {color: var(--success);}
+.ͼa {color: var(--warning);}
+.ͼb {color: var(--primary);}
+.ͼc {color: var(--warning);}
+.ͼd {color: var(--notice);}
+.ͼe {color: var(--danger);}
+.ͼ4 .cm-line ::selection, .ͼ4 .cm-line::selection {background-color: transparent !important;}
+.ͼ4 .cm-line {caret-color: transparent !important;}
+.ͼ4 .cm-content :focus::selection, .ͼ4 .cm-content :focus ::selection {background-color: Highlight !important;}
+.ͼ4 .cm-content :focus {caret-color: initial !important;}
+.ͼ4 .cm-content {caret-color: transparent !important;}
+</style>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaak App</title>
+<!--  <script src="http://localhost:8097"></script>-->
+
+  <!-- Certain elements like webview (and maybe <select>?) will use background
+  color depending on document background color-->
+  <style>
+    html, body {
+      background-color: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html, body {
+        background-color: #1b1a29;
+      }
+    }
+  </style>
+  <script type="module" crossorigin="" src="http://tauri.localhost/assets/entry-index-jcF9FpB7.js"></script>
+  <link rel="stylesheet" crossorigin="" href="http://tauri.localhost/assets/asset-index-Dlqe-ZWD.css">
+<link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-index-D9kjY0nz.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-RedirectToLatestWorkspace-Dleq_Ygj.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-useRecentWorkspaces-BOhOHaXT.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-setWorkspaceSearchParams-Ll0XOmGQ.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-useKeyValue-DiYGM103.js"><style data-theme="yaak-dark" data-updated-at="2026-04-15T15:08:11.561Z">/* Yaak */
+[data-theme="yaak-dark"] {
+    --surface: hsl(244,23%,14%);
+    --surfaceHighlight: hsl(244,23%,20%);
+    --surfaceActive: #9442FF33;
+    --backdrop: #171623CC;
+    --selection: #AB6BFF4D;
+    --border: hsl(244,23%,25%);
+    --borderSubtle: #2F2D48FF;
+    --borderFocus: #42ADFF80;
+    --text: hsl(245,23%,85%);
+    --textSubtle: hsl(245,18%,58%);
+    --textSubtlest: hsl(245,18%,45%);
+    --shadow: #0000004D;
+    --primary: hsl(266,100%,79%);
+    --secondary: hsl(245,23%,60%);
+    --info: hsl(206,100%,63%);
+    --success: hsl(150,99%,44%);
+    --notice: hsl(48,80%,63%);
+    --warning: hsl(28,100%,61%);
+    --danger: hsl(342,90%,68%);
+    
+    .x-theme-button {
+        --surfaceActive: #8324FF33;
+        --selection: #9747FF4D;
+        --borderFocus: #24A0FF80;
+        --shadow: #0000004D;
+        --primary: hsl(266,100%,71.1%);
+        --secondary: hsl(244,23%,54%);
+        --info: hsl(206,100%,56.7%);
+        --success: hsl(150,99%,37.4%);
+        --notice: hsl(48,80%,50.4%);
+        --warning: hsl(28,100%,54.9%);
+        --danger: hsl(342,90%,61.2%);
+    }
+    
+    .x-theme-dialog {
+        --border: hsl(244,23%,24%);
+        --borderSubtle: #2E2C47FF;
+        --shadow: #0000004D;
+    }
+    
+    .x-theme-sidebar {
+        --surface: hsl(243,23%,16%);
+        --surfaceHighlight: #2B2942FF;
+        --backdrop: #1B1A29CC;
+        --border: hsl(244,23%,22%);
+        --borderSubtle: #2B2941FF;
+        --shadow: #0000004D;
+    }
+    
+    .x-theme-responsePane {
+        --surface: hsl(243,23%,16%);
+        --surfaceHighlight: #2B2942FF;
+        --backdrop: #1B1A29CC;
+        --border: hsl(246,23%,23%);
+        --borderSubtle: #2D2A44FF;
+        --shadow: #0000004D;
+    }
+    
+    .x-theme-appHeader {
+        --surface: hsl(244,23%,12%);
+        --surfaceHighlight: #232236FF;
+        --backdrop: #15141FCC;
+        --border: hsl(244,23%,21%);
+        --borderSubtle: #29273EFF;
+        --shadow: #0000004D;
+    }
+    
+    .x-theme-toast {
+        --shadow: #0000004D;
+    }
+    
+    .x-theme-button--solid--default {
+        --surfaceHighlight: #2B2842FF;
+        --border: #1D1B2CFF;
+    }
+    
+    .x-theme-button--border--default {
+        --text: #CBC9DEFF;
+        --textSubtle: #8A85B4FF;
+        --textSubtlest: #645D9866;
+        --surfaceHighlight: #1D1B2C33;
+        --borderSubtle: #4F4A78FF;
+        --border: #7D77ACFF;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .x-theme-button--solid--primary {
+        --text: white;
+        --surface: #6E00FEFF;
+        --surfaceHighlight: #9747FFFF;
+        --border: #AB6CFFFF;
+    }
+    
+    .x-theme-button--border--primary {
+        --text: #EEE2FFFF;
+        --textSubtle: #D9BDFFFF;
+        --textSubtlest: #CEA8FF66;
+        --surfaceHighlight: #AB6BFF33;
+        --borderSubtle: #AB6BFF80;
+        --border: #AB6BFFB3;
+    }
+    
+    .x-theme-button--solid--secondary {
+        --text: white;
+        --surface: #4C4A77FF;
+        --surfaceHighlight: #625F98FF;
+        --border: #726FA5FF;
+    }
+    
+    .x-theme-button--border--secondary {
+        --text: #E3E2EDFF;
+        --textSubtle: #BFBED6FF;
+        --textSubtlest: #A9A7C866;
+        --surfaceHighlight: #716FA533;
+        --borderSubtle: #716FA580;
+        --border: #716FA5B3;
+    }
+    
+    .x-theme-button--solid--info {
+        --text: white;
+        --surface: #0073CAFF;
+        --surfaceHighlight: #0593FFFF;
+        --border: #229FFFFF;
+    }
+    
+    .x-theme-button--border--info {
+        --text: #D3ECFFFF;
+        --textSubtle: #9CD4FFFF;
+        --textSubtlest: #7AC6FF66;
+        --surfaceHighlight: #24A0FF33;
+        --borderSubtle: #24A0FF80;
+        --border: #24A0FFB3;
+    }
+    
+    .x-theme-button--solid--success {
+        --text: white;
+        --surface: #018543FF;
+        --surfaceHighlight: #01AB56FF;
+        --border: #01BE5FFF;
+    }
+    
+    .x-theme-button--border--success {
+        --text: #BFFFDFFF;
+        --textSubtle: #70FEB7FF;
+        --textSubtlest: #3EFE9E66;
+        --surfaceHighlight: #01BC5E33;
+        --borderSubtle: #01BC5E80;
+        --border: #01BC5EB3;
+    }
+    
+    .x-theme-button--solid--notice {
+        --text: white;
+        --surface: #A28512FF;
+        --surfaceHighlight: #D0AB17FF;
+        --border: #E6BD1BFF;
+    }
+    
+    .x-theme-button--border--notice {
+        --text: #FAF2D1FF;
+        --textSubtle: #F4E199FF;
+        --textSubtlest: #F0D77566;
+        --surfaceHighlight: #E6BD1933;
+        --borderSubtle: #E6BD1980;
+        --border: #E6BD19B3;
+    }
+    
+    .x-theme-button--solid--warning {
+        --text: white;
+        --surface: #C45B00FF;
+        --surfaceHighlight: #FC7600FF;
+        --border: #FF8419FF;
+    }
+    
+    .x-theme-button--border--warning {
+        --text: #FFE6D1FF;
+        --textSubtle: #FFC897FF;
+        --textSubtlest: #FFB67566;
+        --surfaceHighlight: #FF851A33;
+        --borderSubtle: #FF851A80;
+        --border: #FF851AB3;
+    }
+    
+    .x-theme-button--solid--danger {
+        --text: white;
+        --surface: #D00B46FF;
+        --surfaceHighlight: #F42563FF;
+        --border: #F54378FF;
+    }
+    
+    .x-theme-button--border--danger {
+        --text: #FDD9E4FF;
+        --textSubtle: #FBAAC2FF;
+        --textSubtlest: #F990AF66;
+        --surfaceHighlight: #F5427833;
+        --borderSubtle: #F5427880;
+        --border: #F54278B3;
+    }
+    
+    
+    
+    
+    
+    .x-theme-banner--surface {
+        --text: #CBC9DEFF;
+        --textSubtle: #1D1B2CB3;
+        --textSubtlest: #1D1B2C66;
+        --surface: #1D1B2C0D;
+        --border: #534E7E33;
+    }
+    
+    .x-theme-banner--surfaceHighlight {
+        --text: #CECCE0FF;
+        --textSubtle: #29273FB3;
+        --textSubtlest: #29273F66;
+        --surface: #29273F0D;
+        --border: #5B558B33;
+    }
+    
+    .x-theme-banner--text {
+        --text: #F6F6F9FF;
+        --textSubtle: #D0D0E2B3;
+        --textSubtlest: #D0D0E266;
+        --surface: #D0D0E20D;
+        --border: #DFDFEC33;
+    }
+    
+    .x-theme-banner--textSubtle {
+        --text: #E6E6EDFF;
+        --textSubtle: #8481A7B3;
+        --textSubtlest: #8481A766;
+        --surface: #8481A70D;
+        --border: #AAA8C233;
+    }
+    
+    .x-theme-banner--textSubtlest {
+        --text: #DFDEE8FF;
+        --textSubtle: #625E87B3;
+        --textSubtlest: #625E8766;
+        --surface: #625E870D;
+        --border: #8E8AAD33;
+    }
+    
+    .x-theme-banner--border {
+        --text: #D1D0E2FF;
+        --textSubtle: #33314EB3;
+        --textSubtlest: #33314E66;
+        --surface: #33314E0D;
+        --border: #605C9333;
+    }
+    
+    .x-theme-banner--primary {
+        --text: #F3EAFFFF;
+        --textSubtle: #C294FFB3;
+        --textSubtlest: #C294FF66;
+        --surface: #C294FF0D;
+        --border: #D4B3FF33;
+    }
+    
+    .x-theme-banner--secondary {
+        --text: #E7E6EFFF;
+        --textSubtle: #8582B0B3;
+        --textSubtlest: #8582B066;
+        --surface: #8582B00D;
+        --border: #A9A7C833;
+    }
+    
+    .x-theme-banner--info {
+        --text: #D9EFFFFF;
+        --textSubtle: #42ADFFB3;
+        --textSubtlest: #42ADFF66;
+        --surface: #42ADFF0D;
+        --border: #7AC6FF33;
+    }
+    
+    .x-theme-banner--success {
+        --text: #C6FFE2FF;
+        --textSubtle: #01DF70B3;
+        --textSubtlest: #01DF7066;
+        --surface: #01DF700D;
+        --border: #39FE9C33;
+    }
+    
+    .x-theme-banner--notice {
+        --text: #FBF5DDFF;
+        --textSubtle: #ECCE55B3;
+        --textSubtlest: #ECCE5566;
+        --surface: #ECCE550D;
+        --border: #F2DD8833;
+    }
+    
+    .x-theme-banner--warning {
+        --text: #FFEAD7FF;
+        --textSubtle: #FF9538B3;
+        --textSubtlest: #FF953866;
+        --surface: #FF95380D;
+        --border: #FFB67533;
+    }
+    
+    .x-theme-banner--danger {
+        --text: #FDE0E9FF;
+        --textSubtle: #F76490B3;
+        --textSubtlest: #F7649066;
+        --surface: #F764900D;
+        --border: #F990AF33;
+    }
+    
+    .x-theme-banner--surfaceActive {
+        --text: #EAD9FF33;
+        --textSubtle: #9442FF24;
+        --textSubtlest: #9442FF14;
+        --surface: #9442FF03;
+        --border: #B47AFF0A;
+    }
+    
+    .x-theme-banner--borderSubtle {
+        --text: #D0CFE1FF;
+        --textSubtle: #2F2D48B3;
+        --textSubtlest: #2F2D4866;
+        --surface: #2F2D480D;
+        --border: #5D5A9033;
+    }
+    
+    .x-theme-toast--surface {
+        --text: #CBC9DEFF;
+        --textSubtle: #CBC9DEB3;
+        --surface: #1D1B2C19;
+        --surfaceHighlight: #1D1B2C33;
+        --border: #534E7E66;
+    }
+    
+    .x-theme-toast--surfaceHighlight {
+        --text: #CECCE0FF;
+        --textSubtle: #CECCE0B3;
+        --surface: #29273F19;
+        --surfaceHighlight: #29273F33;
+        --border: #5B558B66;
+    }
+    
+    .x-theme-toast--text {
+        --text: #F6F6F9FF;
+        --textSubtle: #F6F6F9B3;
+        --surface: #D0D0E219;
+        --surfaceHighlight: #D0D0E233;
+        --border: #DFDFEC66;
+    }
+    
+    .x-theme-toast--textSubtle {
+        --text: #E6E6EDFF;
+        --textSubtle: #E7E7EEB3;
+        --surface: #8481A719;
+        --surfaceHighlight: #8481A733;
+        --border: #AAA8C266;
+    }
+    
+    .x-theme-toast--textSubtlest {
+        --text: #DFDEE8FF;
+        --textSubtle: #DFDEE8B3;
+        --surface: #625E8719;
+        --surfaceHighlight: #625E8733;
+        --border: #8E8AAD66;
+    }
+    
+    .x-theme-toast--border {
+        --text: #D1D0E2FF;
+        --textSubtle: #D0D0E2B3;
+        --surface: #33314E19;
+        --surfaceHighlight: #33314E33;
+        --border: #605C9366;
+    }
+    
+    .x-theme-toast--primary {
+        --text: #F3EAFFFF;
+        --textSubtle: #F3EBFFB3;
+        --surface: #C294FF19;
+        --surfaceHighlight: #C294FF33;
+        --border: #D4B3FF66;
+    }
+    
+    .x-theme-toast--secondary {
+        --text: #E7E6EFFF;
+        --textSubtle: #E7E6EFB3;
+        --surface: #8582B019;
+        --surfaceHighlight: #8582B033;
+        --border: #A9A7C866;
+    }
+    
+    .x-theme-toast--info {
+        --text: #D9EFFFFF;
+        --textSubtle: #DBF0FFB3;
+        --surface: #42ADFF19;
+        --surfaceHighlight: #42ADFF33;
+        --border: #7AC6FF66;
+    }
+    
+    .x-theme-toast--success {
+        --text: #C6FFE2FF;
+        --textSubtle: #C7FFE2B3;
+        --surface: #01DF7019;
+        --surfaceHighlight: #01DF7033;
+        --border: #39FE9C66;
+    }
+    
+    .x-theme-toast--notice {
+        --text: #FBF5DDFF;
+        --textSubtle: #FBF6DFB3;
+        --surface: #ECCE5519;
+        --surfaceHighlight: #ECCE5533;
+        --border: #F2DD8866;
+    }
+    
+    .x-theme-toast--warning {
+        --text: #FFEAD7FF;
+        --textSubtle: #FFE9D6B3;
+        --surface: #FF953819;
+        --surfaceHighlight: #FF953833;
+        --border: #FFB67566;
+    }
+    
+    .x-theme-toast--danger {
+        --text: #FDE0E9FF;
+        --textSubtle: #FDE2EBB3;
+        --surface: #F7649019;
+        --surfaceHighlight: #F7649033;
+        --border: #F990AF66;
+    }
+    
+    .x-theme-toast--surfaceActive {
+        --text: #EAD9FF33;
+        --textSubtle: #EBDBFF24;
+        --surface: #9442FF05;
+        --surfaceHighlight: #9442FF0A;
+        --border: #B47AFF14;
+    }
+    
+    .x-theme-toast--borderSubtle {
+        --text: #D0CFE1FF;
+        --textSubtle: #D1D0E2B3;
+        --surface: #2F2D4819;
+        --surfaceHighlight: #2F2D4833;
+        --border: #5D5A9066;
+    }
+    
+    .x-theme-templateTag--surface {
+        --text: #B1ADCDFF;
+        --textSubtle: #655E99FF;
+        --textSubtlest: #1D1B2CFF;
+        --surface: #17162333;
+        --border: #1D1B2C66;
+        --borderSubtle: #1D1B2C33;
+        --surfaceHighlight: #1B19294D;
+    }
+    
+    .x-theme-templateTag--surfaceHighlight {
+        --text: #B6B3D0FF;
+        --textSubtle: #6C67A2FF;
+        --textSubtlest: #29273FFF;
+        --surface: #211F3333;
+        --border: #29273F66;
+        --borderSubtle: #29273F33;
+        --surfaceHighlight: #2523394D;
+    }
+    
+    .x-theme-templateTag--text {
+        --text: #F1F1F6FF;
+        --textSubtle: #E3E3EEFF;
+        --textSubtlest: #D1D0E2FF;
+        --surface: #9C9AC133;
+        --border: #D0D0E266;
+        --borderSubtle: #D0D0E233;
+        --surfaceHighlight: #B5B4D04D;
+    }
+    
+    .x-theme-templateTag--textSubtle {
+        --text: #DAD9E5FF;
+        --textSubtle: #B5B3CAFF;
+        --textSubtlest: #8481A7FF;
+        --surface: #64608A33;
+        --border: #8481A766;
+        --borderSubtle: #8481A733;
+        --surfaceHighlight: #726F9B4D;
+    }
+    
+    .x-theme-templateTag--textSubtlest {
+        --text: #CFCDDCFF;
+        --textSubtle: #9F9CBAFF;
+        --textSubtlest: #625E87FF;
+        --surface: #4F4B6C33;
+        --border: #625E8766;
+        --borderSubtle: #625E8733;
+        --surfaceHighlight: #59567B4D;
+    }
+    
+    .x-theme-templateTag--border {
+        --text: #BAB8D3FF;
+        --textSubtle: #7572A7FF;
+        --textSubtlest: #33314EFF;
+        --surface: #29273F33;
+        --border: #33314E66;
+        --borderSubtle: #33314E33;
+        --surfaceHighlight: #2F2D484D;
+    }
+    
+    .x-theme-templateTag--primary {
+        --text: #EDDFFFFF;
+        --textSubtle: #DBBFFFFF;
+        --textSubtlest: #C294FFFF;
+        --surface: #9442FF33;
+        --border: #C294FF66;
+        --borderSubtle: #C294FF33;
+        --surfaceHighlight: #AB6BFF4D;
+    }
+    
+    .x-theme-templateTag--secondary {
+        --text: #DAD9E7FF;
+        --textSubtle: #B6B4D0FF;
+        --textSubtlest: #8582B0FF;
+        --surface: #625E9733;
+        --border: #8582B066;
+        --borderSubtle: #8582B033;
+        --surfaceHighlight: #716FA54D;
+    }
+    
+    .x-theme-templateTag--info {
+        --text: #C6E6FFFF;
+        --textSubtle: #8ECEFFFF;
+        --textSubtlest: #42ADFFFF;
+        --surface: #0091FF33;
+        --border: #42ADFF66;
+        --borderSubtle: #42ADFF33;
+        --surfaceHighlight: #24A0FF4D;
+    }
+    
+    .x-theme-templateTag--success {
+        --text: #AAFFD4FF;
+        --textSubtle: #54FEA9FF;
+        --textSubtlest: #01DF70FF;
+        --surface: #01B25933;
+        --border: #01DF7066;
+        --borderSubtle: #01DF7033;
+        --surfaceHighlight: #01CB664D;
+    }
+    
+    .x-theme-templateTag--notice {
+        --text: #F9F0CCFF;
+        --textSubtle: #F4E299FF;
+        --textSubtlest: #ECCE55FF;
+        --surface: #E6BD1933;
+        --border: #ECCE5566;
+        --borderSubtle: #ECCE5533;
+        --surfaceHighlight: #E9C63A4D;
+    }
+    
+    .x-theme-templateTag--warning {
+        --text: #FFDFC3FF;
+        --textSubtle: #FFBF88FF;
+        --textSubtlest: #FF9538FF;
+        --surface: #FA750033;
+        --border: #FF953866;
+        --borderSubtle: #FF953833;
+        --surfaceHighlight: #FF851A4D;
+    }
+    
+    .x-theme-templateTag--danger {
+        --text: #FDD0DEFF;
+        --textSubtle: #FAA2BCFF;
+        --textSubtlest: #F76490FF;
+        --surface: #F3205F33;
+        --border: #F7649066;
+        --borderSubtle: #F7649033;
+        --surfaceHighlight: #F542784D;
+    }
+    
+    .x-theme-templateTag--surfaceActive {
+        --text: #DFC6FF33;
+        --textSubtle: #BF8EFF33;
+        --textSubtlest: #9442FF33;
+        --surface: #6E00FF0A;
+        --border: #9442FF14;
+        --borderSubtle: #9442FF0A;
+        --surfaceHighlight: #8324FF0F;
+    }
+    
+    .x-theme-templateTag--borderSubtle {
+        --text: #B8B7D2FF;
+        --textSubtle: #726EA4FF;
+        --textSubtlest: #2F2D48FF;
+        --surface: #25233833;
+        --border: #2F2D4866;
+        --borderSubtle: #2F2D4833;
+        --surfaceHighlight: #2A29424D;
+    }
+}</style><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-Toasts-CZ0idsu0.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-index-2SnKEfHN.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-index-JeNlUmXG.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-index-CmN6XWXM.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-extensions-DdmtfXPo.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-clamp-BIBrEWm5.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-reveal-C3CNFrIK.js"><link rel="stylesheet" crossorigin="" href="http://tauri.localhost/assets/asset-index-Bioe2Nxq.css"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-Editor-DD_CorTc.js"><link rel="stylesheet" crossorigin="" href="http://tauri.localhost/assets/asset-Editor-DlxgBO0w.css"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/chunk-PdfViewer-B5vN0Bf5.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/entry-index-jcF9FpB7.js"><link rel="stylesheet" crossorigin="" href="http://tauri.localhost/assets/asset-PdfViewer-Bzhv2bSa.css"></head>
+
+<body class="text-base">
+<div id="root"><div class="w-full h-full"><div class="grid w-full h-full transition-grid" style="grid-template: &quot;head head head&quot; &quot;side drag body&quot; minmax(0px, 1fr) / 250px 0px 1fr;"><div class="x-theme-sidebar overflow-hidden bg-surface" style="grid-area: side;"><aside aria-hidden="false" class="border-r border-border-subtle h-full grid grid-rows-[auto_minmax(0,1fr)_auto]"><div class="w-full pl-3 pr-0.5 pt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-jk5z4XYH0w" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>filter</span></label><div class="x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" style="tab-size: 4;" class="cm-content" role="textbox" aria-multiline="true" data-language="filter" aria-autocomplete="list"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>Search</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms; animation-name: cm-blink2;"><div class="cm-cursor cm-cursor-primary" style="left: 1px; top: 4.8px; height: 16.8px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div><button type="button" class="ml-0.5 text-text-subtle hover:text-text group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Show sidebar actions menu" aria-hidden="false" aria-haspopup="true" aria-expanded="false" style=""><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></div></button></div><div class="pl-2 pr-3 pt-2 pb-2 outline-none h-full overflow-y-auto overflow-x-hidden grid grid-rows-[auto_1fr]"><div class="[&amp;_.tree-item.selected_.tree-item-inner]:text-text [&amp;:focus-within]:[&amp;_.tree-item.selected]:bg-surface-active [&amp;:not(:focus-within)]:[&amp;_.tree-item.selected:not([data-context-menu-open])]:bg-surface-highlight [&amp;_.tree-item.selected[data-context-menu-open]]:bg-surface-active [&amp;_.tree-item]:rounded-md [&amp;_.tree-item.selected+.tree-item.selected]:rounded-t-none [&amp;_.tree-item.selected+.drop-marker+.tree-item.selected]:rounded-t-none [&amp;_.tree-item.selected:has(+.tree-item.selected)]:rounded-b-none [&amp;_.tree-item.selected:has(+.drop-marker+.tree-item.selected)]:rounded-b-none"><ul><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)] selected"><div class="flex"></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="0" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">работоспособность</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]"> GET</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">HTTP Request</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">200 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">Авторизция</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">Регистрация</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]">POST</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/auth/register</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">201 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">Вход</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]">POST</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/auth/login</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">200 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">Работа с проектами</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">Создание проекта</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]">POST</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/projects/</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">201 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">Просмотр ленты</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]"> GET</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/projects/?page=1&amp;limit=10</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">200 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">пользователи и поиск</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">поиск пользователя</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]"> GET</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/users/search?query=captain</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">200 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">просмотр профиля</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]"> GET</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/users/1</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">200 </span></div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><button type="button" tabindex="-1" class="h-full pl-[0.5rem] outline-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transition-transform text-text-subtlest ml-auto w-[1rem] h-[1rem] rotate-90 transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m9 18 6-6-6-6"></path></svg></button><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">загрузка файлов</div></div></button><span aria-hidden="true"></span></div></li><li class="tree-item h-sm grid grid-cols-[auto_minmax(0,1fr)]"><div class="flex"><div class="w-[calc(1rem+0.5px)] border-r border-r-text-subtlest opacity-30"></div></div><div class="text-text-subtle grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-2 items-center rounded-md"><span aria-hidden="true"></span><button class="cursor-default tree-item-inner pr-1 focus:outline-none flex items-center gap-2 h-full whitespace-nowrap" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-29"><span class="text-xs pl-1.5 opacity-80 text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]">POST</span><div class="flex items-center gap-2 min-w-0 h-full w-full text-left"><div class="truncate">base_url/uploads</div><div class="ml-auto"><span class="text-xs font-mono min-w-0 text-success">201 </span></div></div></button><span aria-hidden="true"></span></div></li></ul></div><div></div></div><div id="DndDescribedBy-29" style="display: none;">
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div><div id="DndLiveRegion-29" role="status" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%); white-space: nowrap;"></div><button class="px-3 h-md border-t border-border flex items-center justify-between text-text-subtle outline-none focus-visible:bg-surface-highlight" aria-haspopup="true" aria-expanded="false"><div class="text-sm text-text-subtle grid grid-cols-[auto_minmax(0,1fr)] items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg><div class="truncate">Setup FS Sync or Git</div></div></button></aside></div><div aria-hidden="true" class="-translate-x-[1px] group z-10 flex select-none transition-colors hover:bg-surface-active rounded-full h-full w-1.5 cursor-col-resize justify-end right-0" style="grid-area: drag;"></div><div data-tauri-drag-region="true" class="relative x-theme-appHeader bg-surface pt-[1px] select-none relative w-full border-b border-border-subtle min-w-0" style="grid-area: head; min-height: 40px; padding-right: 10.5rem;"><div class="pointer-events-none h-full w-full overflow-x-auto hide-scrollbars grid px-1"><div class="absolute inset-0 pointer-events-none"><div class="absolute inset-0 opacity-[0.07]"></div><div class="absolute left-0 right-0 -bottom-[1px] h-[1px] opacity-20"></div></div><div class="pointer-events-none grid grid-cols-[auto_minmax(0,1fr)_auto] items-center w-full h-full"><div class="flex-1 pointer-events-none flex-row gap-0.5 flex items-center"><div class="h-full flex-row flex items-center"><button type="button" class="pointer-events-auto group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Toggle sidebar" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left-close group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m16 15-3-3 3-3"></path></svg></div></button><button type="button" class="group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Add Resource" aria-hidden="false" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg></div></button></div><button type="button" class="group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Cookie Jar" aria-hidden="false" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg></div></button><div class="min-w-0 flex-row flex items-center"><button type="button" class="text !px-2 truncate x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" aria-haspopup="true" aria-expanded="false" style=""><div class="truncate w-full text-center">ts</div></button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><path d="m9 18 6-6-6-6"></path></svg><button type="button" class="w-auto pointer-events-auto text !px-2 truncate x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" aria-haspopup="true" aria-expanded="false" style=""><div class="truncate w-full text-center">Environment</div></button></div></div><div class="pointer-events-none w-full max-w-[30vw] mx-auto flex justify-center"><button type="button" class="truncate pointer-events-auto x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Ctrl+P" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center">HTTP Request</div></button></div><div class="flex-1 flex gap-1 items-center h-full justify-end pointer-events-none pr-1"><button type="button" class="!rounded-full mx-1 !px-3 x-theme-button x-theme-button--border x-theme-button--border--secondary border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-2xs px-2 text-xs rounded border border-border-subtle text-text-subtle enabled:hocus:border-border enabled:hocus:bg-surface-highlight enabled:hocus:text-text outline-border-subtler"><div class="truncate w-full text-center">Commercial Trial</div></button><button type="button" class="group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Change to vertical layout" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-columns2 lucide-columns-2 group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M12 3v18"></path></svg></div></button><button type="button" class="group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Search or execute a command Ctrl+K" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></div></button><button type="button" class="pointer-events-auto group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Main Menu" aria-hidden="false" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></div></button></div></div></div><div class="ml-4 absolute right-0 top-0 bottom-0 flex-row flex items-center justify-end" data-tauri-drag-region="true" style="width: 10.5rem;"><button type="button" class="!h-full px-4 text-text-subtle hocus:text hocus:bg-surface-highlight rounded-none x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>Minimize</title><path fill="currentColor" d="M14 8v1H3V8z"></path></svg></div></button><button type="button" class="!h-full px-4 text-text-subtle hocus:text hocus:bg-surface-highlight rounded-none x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>Unmaximize</title><g fill="currentColor"><path d="M3 5v9h9V5zm8 8H4V6h7z"></path><path fill-rule="evenodd" d="M5 5h1V4h7v7h-1v1h2V3H5z" clip-rule="evenodd"></path></g></svg></div></button><button type="button" class="!h-full px-4 text-text-subtle rounded-none hocus:bg-danger hocus:text-text x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>Close</title><path fill="currentColor" fill-rule="evenodd" d="m7.116 8l-4.558 4.558l.884.884L8 8.884l4.558 4.558l.884-.884L8.884 8l4.558-4.558l-.884-.884L8 7.116L3.442 2.558l-.884.884z" clip-rule="evenodd"></path></svg></div></button></div></div><div class="p-3 gap-1.5 grid w-full h-full overflow-hidden" style="grid-area: body; grid-template: &quot;left drag right&quot; minmax(0px, 1fr) / 0.513667fr 0px 0.486333fr;"><div class="h-full grid grid-rows-[auto_minmax(0,1fr)] grid-cols-1" style="min-width: 0px; grid-area: left;"><form class="x-theme-urlBar"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-fzjEIMzkZw" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Enter URL</span></label><div class="x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="py-0.5"><button type="button" class="ml-0.5 !h-full text-text-subtle hover:text x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center"><span class="text-text-subtle font-mono flex-shrink-0 whitespace-pre pt-[0.15em]">GET</span></div></button></div><div class="w-full min-w-0 px-2 pl-0.5 -ml-2 pr-0.5 -mr-2 flex-row flex items-center"><div class="px-1.5 py-0.5 !bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" style="tab-size: 4;" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="x-theme-templateTag template-tag x-theme-templateTag--primary" title="http://localhost:8080" data-tag-type="variable" contenteditable="false">base_url</span><img class="cm-widgetBuffer" aria-hidden="true">/health</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"><div class="cm-cursor cm-cursor-primary" style="left: 102.962px; top: 4.65px; height: 13.6px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div><div class="flex-row gap-0.5 flex items-center"><div class="py-0.5 h-full"><button type="submit" class="w-8 mr-0.5 !h-full group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Send Request Ctrl+Enter" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 text-secondary"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"></path><path d="M6 12h16"></path></svg></div></button></div></div></div></div></form><div class="tabs-container h-full grid grid-rows-[auto_minmax(0,1fr)] grid-cols-1"><div role="tablist" aria-label="Request" class="mt-1 -mb-1.5 flex items-center hide-scrollbars overflow-x-auto overflow-y-visible  py-1 pl-3 -ml-5 pr-1"><div class="flex flex-row flex-shrink-0 w-full"><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-5"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus" aria-haspopup="true" aria-expanded="false" style=""><div class="truncate w-full text-center">JSON</div><div class="ml-1"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down ml-1 text-text-subtle transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="m6 9 6 6 6-6"></path></svg></div></div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-5"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center">Params</div><div class="ml-1"></div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-5"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center">Headers</div><div class="ml-1"><div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">3</div></div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-5"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center">Info</div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-5"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus" aria-haspopup="true" aria-expanded="false" style=""><div class="truncate w-full text-center">Auth</div><div class="ml-1"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down ml-1 text-text-subtlest transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="m6 9 6 6 6-6"></path></svg></div></div></button></div></div></div><div id="DndDescribedBy-5" style="display: none;">
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div><div id="DndLiveRegion-5" role="status" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%); white-space: nowrap;"></div><div tabindex="-1" data-tab="auth" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="w-full h-full pb-2"><div class="rounded-lg border border-dashed border-border-subtle h-full py-2 text-text-subtlest flex items-center justify-center italic">No authentication</div></div></div><div tabindex="-1" data-tab="headers" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="@container w-full h-full grid grid-rows-[auto_minmax(0,1fr)] gap-y-1.5"><div class="w-auto grid grid-rows-1 max-h-full flex-0"><div class="text-sm bg-surface x-theme-banner--secondary border border-border border-dashed px-4 py-2 rounded-lg select-auto cursor-auto overflow-auto text-text mb-auto"><details class="group list-none"><summary class="!cursor-default !select-none list-none flex items-center gap-3 focus:outline-none opacity-70"><div class="transition-transform group-open:rotate-90 w-0 h-0 border-t-[0.3em] border-b-[0.3em] border-l-[0.5em] border-r-0 border-t-transparent border-b-transparent border-l-text-subtle"></div><div class="flex-row flex items-center">Inherited <div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">2</div></div></summary><div class="mt-1.5 pb-2"><div class="pb-2"><div class="py-1 group/pair-row grid grid-cols-[auto_auto_minmax(0,1fr)_auto] grid-rows-1 items-center"><label class="text-text mr-auto flex-row gap-2 flex items-center"><div class="x-theme-input relative flex mr-0.5"><input aria-hidden="true" class="appearance-none w-4 h-4 flex-shrink-0 border border-border rounded outline-none ring-0 border-dotted" disabled="" type="checkbox"><div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check opacity-disabled transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="M20 6 9 17l-5-5"></path></svg></div></div></label><span class="w-4"></span><div class="grid items-center @xs:gap-2 @xs:!grid-rows-1 @xs:!grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-0.5 grid-cols-1 grid-rows-2"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-jXfAe5qDFp" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Name<span class="text-text-subtlest">*</span></span></label><div class="bg-surface x-theme-input relative w-full rounded-md text overflow-hidden border border-border border-dotted min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base opacity-disabled cm-auto-height cm-singleline cm-readonly"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" aria-readonly="true" tabindex="-1" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line">User-Agent</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div><div class="w-full grid grid-cols-[minmax(0,1fr)_auto] gap-1 items-center"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-4AI6i2RsSk" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Value</span></label><div class="bg-surface x-theme-input relative w-full rounded-md text overflow-hidden border border-border border-dotted min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base opacity-disabled cm-auto-height cm-singleline cm-readonly"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" aria-readonly="true" tabindex="-1" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line">yaak</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div></div></div><button type="button" class="text-text-subtlest group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-none opacity-disabled justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" disabled="" title="Select form data type" aria-hidden="true" tabindex="-1" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><div class="group-hover/button:text-text transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"></div></div></button></div><div class="py-1 group/pair-row grid grid-cols-[auto_auto_minmax(0,1fr)_auto] grid-rows-1 items-center"><label class="text-text mr-auto flex-row gap-2 flex items-center"><div class="x-theme-input relative flex mr-0.5"><input aria-hidden="true" class="appearance-none w-4 h-4 flex-shrink-0 border border-border rounded outline-none ring-0 border-dotted" disabled="" type="checkbox"><div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check opacity-disabled transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="M20 6 9 17l-5-5"></path></svg></div></div></label><span class="w-4"></span><div class="grid items-center @xs:gap-2 @xs:!grid-rows-1 @xs:!grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-0.5 grid-cols-1 grid-rows-2"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-VPqUEpp6rm" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Name<span class="text-text-subtlest">*</span></span></label><div class="bg-surface x-theme-input relative w-full rounded-md text overflow-hidden border border-border border-dotted min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base opacity-disabled cm-auto-height cm-singleline cm-readonly"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" aria-readonly="true" tabindex="-1" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line">Accept</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div><div class="w-full grid grid-cols-[minmax(0,1fr)_auto] gap-1 items-center"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-4SiwEY3t8r" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Value</span></label><div class="bg-surface x-theme-input relative w-full rounded-md text overflow-hidden border border-border border-dotted min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base opacity-disabled cm-auto-height cm-singleline cm-readonly"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" aria-readonly="true" tabindex="-1" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line">*/*</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div></div></div><button type="button" class="text-text-subtlest group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-none opacity-disabled justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" disabled="" title="Select form data type" aria-hidden="true" tabindex="-1" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><div class="group-hover/button:text-text transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"></div></div></button></div></div></div></details></div></div><div class="relative h-full w-full group/wrapper"><div class="@container relative pb-2 mb-auto h-full overflow-y-auto max-h-full -mr-2 pr-2 pt-0.5 grid grid-rows-[auto_1fr]"><div><div class="py-1 group/pair-row grid grid-cols-[auto_auto_minmax(0,1fr)_auto] grid-rows-1 items-center"><label class="text-text mr-auto flex-row gap-2 flex items-center"><div class="x-theme-input relative flex mr-0.5"><input aria-hidden="true" class="appearance-none w-4 h-4 flex-shrink-0 border border-border rounded outline-none ring-0 hocus:border-border-focus hocus:bg-focus/[5%]" type="checkbox"><div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="M20 6 9 17l-5-5"></path></svg></div></div></label><div role="button" tabindex="0" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-6" class="py-2 h-7 w-4 flex items-center justify-center opacity-0 group-hover/pair-row:opacity-70"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-grip-vertical pointer-events-none transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><circle cx="9" cy="12" r="1"></circle><circle cx="9" cy="5" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="15" cy="12" r="1"></circle><circle cx="15" cy="5" r="1"></circle><circle cx="15" cy="19" r="1"></circle></svg></div><div class="grid items-center @xs:gap-2 @xs:!grid-rows-1 @xs:!grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-0.5 grid-cols-1 grid-rows-2"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-7ra9nW0bsd" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Name<span class="text-text-subtlest">*</span></span></label><div class="bg-surface x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line">Content-Type</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div><div class="w-full grid grid-cols-[minmax(0,1fr)_auto] gap-1 items-center"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-w57M2qKSxX" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Value</span></label><div class="bg-surface x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line">application/json</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div></div></div><button type="button" class="text-text-subtlest group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Select form data type" aria-hidden="false" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down group-hover/button:text-text transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="m6 9 6 6 6-6"></path></svg></div></button></div><div class="py-1 group/pair-row grid grid-cols-[auto_auto_minmax(0,1fr)_auto] grid-rows-1 items-center"><label class="!opacity-disabled text-text mr-auto flex-row gap-2 flex items-center"><div class="x-theme-input relative flex mr-0.5"><input aria-hidden="true" class="appearance-none w-4 h-4 flex-shrink-0 border border-border rounded outline-none ring-0 border-dotted" disabled="" type="checkbox"><div class="absolute inset-0 flex items-center justify-center"><div class="opacity-disabled transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"></div></div></div></label><span class="w-4"></span><div class="grid items-center @xs:gap-2 @xs:!grid-rows-1 @xs:!grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-0.5 grid-cols-1 grid-rows-2"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-jZNvEC2vbW" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Name</span></label><div class="bg-surface border-dashed x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>Header-Name</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div><div class="w-full grid grid-cols-[minmax(0,1fr)_auto] gap-1 items-center"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-SygXi9GdIt" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Value</span></label><div class="bg-surface border-dashed x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>value</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div></div></div><button type="button" class="text-text-subtlest group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-none opacity-disabled justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" disabled="" title="Select form data type" aria-hidden="true" tabindex="-1" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><div class="group-hover/button:text-text transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"></div></div></button></div><div id="DndDescribedBy-6" style="display: none;">
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div><div id="DndLiveRegion-6" role="status" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%); white-space: nowrap;"></div></div><div aria-hidden="true"></div></div><div class="absolute right-0 bottom-0"><button type="button" class="transition-opacity opacity-0 group-hover:opacity-80 hover:!opacity-100 shadow bg-surface hover:text group-hover/wrapper:opacity-100 group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--border x-theme-button--border--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border border-border-subtle text-text-subtle enabled:hocus:border-border enabled:hocus:bg-surface-highlight enabled:hocus:text-text outline-border-subtler" title="Enable bulk edit" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M10 12.5 8 15l2 2.5"></path><path d="m14 12.5 2 2.5-2 2.5"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path></svg></div></button></div></div></div></div><div tabindex="-1" data-tab="params" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="h-full flex-col flex"><div class="relative h-full w-full group/wrapper"><div class="@container relative pb-2 mb-auto h-full overflow-y-auto max-h-full -mr-2 pr-2 pt-0.5 grid grid-rows-[auto_1fr]"><div><div class="py-1 group/pair-row grid grid-cols-[auto_auto_minmax(0,1fr)_auto] grid-rows-1 items-center"><label class="!opacity-disabled text-text mr-auto flex-row gap-2 flex items-center"><div class="x-theme-input relative flex mr-0.5"><input aria-hidden="true" class="appearance-none w-4 h-4 flex-shrink-0 border border-border rounded outline-none ring-0 border-dotted" disabled="" type="checkbox"><div class="absolute inset-0 flex items-center justify-center"><div class="opacity-disabled transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"></div></div></div></label><span class="w-4"></span><div class="grid items-center @xs:gap-2 @xs:!grid-rows-1 @xs:!grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-0.5 grid-cols-1 grid-rows-2"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-HKbk3SAM64" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Name</span></label><div class="bg-surface border-dashed x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>param_name</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div><div class="w-full grid grid-cols-[minmax(0,1fr)_auto] gap-1 items-center"><div class="pointer-events-auto w-full flex-row gap-0.5"><label for="input-WEWP9PttpW" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Value</span></label><div class="bg-surface border-dashed x-theme-input relative w-full rounded-md text overflow-hidden border border-border min-h-sm flex-row flex items-stretch"><div class="w-full min-w-0 px-2 flex-row flex items-center"><div class="!bg-transparent min-w-0 h-auto w-full focus:outline-none placeholder:text-placeholder cm-wrapper text-base cm-auto-height cm-singleline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>Value</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div></div></div></div></div></div><button type="button" class="text-text-subtlest group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-none opacity-disabled justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" disabled="" title="Select form data type" aria-hidden="true" tabindex="-1" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><div class="group-hover/button:text-text transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"></div></div></button></div><div id="DndDescribedBy-7" style="display: none;">
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div><div id="DndLiveRegion-7" role="status" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%); white-space: nowrap;"></div></div><div aria-hidden="true"></div></div><div class="absolute right-0 bottom-0"><button type="button" class="transition-opacity opacity-0 group-hover:opacity-80 hover:!opacity-100 shadow bg-surface hover:text group-hover/wrapper:opacity-100 group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--border x-theme-button--border--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border border-border-subtle text-text-subtle enabled:hocus:border-border enabled:hocus:bg-surface-highlight enabled:hocus:text-text outline-border-subtler" title="Enable bulk edit" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M10 12.5 8 15l2 2.5"></path><path d="m14 12.5 2 2.5-2 2.5"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path></svg></div></button></div></div></div></div><div tabindex="-1" data-tab="body" class="tab-content hidden w-full h-full pt-2" data-state="active" aria-hidden="false" style="display: block;"><div class="group relative h-full w-full x-theme-editor bg-surface"><div class="cm-wrapper text-base cm-full-height cm-multiline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div class="cm-gutters cm-gutters-before" aria-hidden="true" style="min-height: 18px; position: sticky;"><div class="cm-gutter cm-gutter-lint"><div class="cm-gutterElement cm-activeLineGutter" style="height: 18px;"></div></div><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">9</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 18px;">1</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><div class="fold-gutter-icon" tabindex="-1"></div></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 18px;"></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content cm-lineWrapping" role="textbox" aria-multiline="true" data-language="twig" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>...</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms; animation-name: cm-blink;"><div class="cm-cursor cm-cursor-primary" style="left: 41.1px; top: 0px; height: 18px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div><div class="absolute bottom-2 left-0 right-0 pointer-events-none flex-row gap-1 flex items-center justify-end"><button type="button" class="bg-surface transition-opacity transform-gpu opacity-0 group-hover:opacity-100 hover:!opacity-100 shadow group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--border x-theme-button--border--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border border-border-subtle text-text-subtle enabled:hocus:border-border enabled:hocus:bg-surface-highlight enabled:hocus:text-text outline-border-subtler" title="Reformat contents" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wand-sparkles group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path><path d="m14 7 3 3"></path><path d="M5 6v4"></path><path d="M19 14v4"></path><path d="M10 2v2"></path><path d="M7 8H3"></path><path d="M21 16h-4"></path><path d="M11 3H9"></path></svg></div></button><div class="!opacity-100 !shadow bg-surface transition-opacity transform-gpu opacity-0 group-hover:opacity-100 hover:!opacity-100 shadow"><button type="button" class="group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--border x-theme-button--border--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border border-border-subtle text-text-subtle enabled:hocus:border-border enabled:hocus:bg-surface-highlight enabled:hocus:text-text outline-border-subtler" title="JSON Settings" aria-hidden="false" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></div></button></div></div></div></div><div tabindex="-1" data-tab="description" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="grid grid-rows-[auto_minmax(0,1fr)] h-full"><div class="w-full pointer-events-auto flex-row gap-0.5"><label for="input-yFewfVX0Pp" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>Request Name</span></label><div class="border-0 x-theme-input relative w-full rounded-md text border overflow-hidden border-border-subtle min-h-md flex-row flex items-stretch"><div class="w-full min-w-0 flex-row flex items-center"><input id="input-yFewfVX0Pp" autocomplete="off" autocapitalize="off" autocorrect="off" class="font-sans !text-xl !px-0 !bg-transparent min-w-0 w-full focus:outline-none placeholder:text-placeholder px-2 text-xs font-mono cursor-text h-full" placeholder="HTTP Request" type="text" value="HTTP Request"></div></div></div><div class="group/markdown relative w-full h-full pt-1.5 rounded-md gap-x-1.5 min-w-0"><div class="h-full w-full"><div class="group relative h-full w-full x-theme-editor bg-surface"><div class="[&amp;_.cm-line]:!max-w-lg max-h-full cm-wrapper text-base cm-full-height cm-multiline"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content cm-lineWrapping" role="textbox" aria-multiline="true" data-language="markdown" aria-autocomplete="list" style="tab-size: 4;"><div class="cm-line"><img class="cm-widgetBuffer" aria-hidden="true"><span class="cm-placeholder" aria-hidden="true" contenteditable="false" style="pointer-events: none;"><div>Request description</div></span><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div><div class="absolute bottom-2 left-0 right-0 pointer-events-none flex-row gap-1 flex items-center justify-end"></div></div></div><div class="absolute top-0 right-0 pt-1.5 pr-1.5"><div class="w-full grid"><label for="input-jtZbFdR3aQ" class="sr-only flex-shrink-0 text-sm text-text-subtle whitespace-nowrap flex items-center gap-1 mb-0.5"><span>View mode</span></label><div class="opacity-0 group-focus-within/markdown:opacity-100 group-hover/markdown:opacity-100 bg-surface-highlight rounded-lg mb-auto mr-auto transition-opacity transform-gpu p-1 flex-row gap-1 flex items-center" id="input-jtZbFdR3aQ" role="group" dir="ltr"><button type="button" class="!px-1.5 !w-auto focus:ring-border-focus group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Preview mode" aria-hidden="false" tabindex="-1" aria-checked="false" role="radio"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg></div></button><button type="button" class="!text-text !px-1.5 !w-auto focus:ring-border-focus group/button relative flex-shrink-0 !px-0 w-xs x-theme-button x-theme-button--solid x-theme-button--solid--secondary border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-xs px-2 text-sm rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle bg-surface" title="Edit mode" aria-hidden="false" aria-checked="true" role="radio"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></div></button></div></div></div></div></div></div></div></div><div aria-hidden="true" class="-translate-x-1 group z-10 flex select-none transition-colors hover:bg-surface-active rounded-full h-full w-1.5 cursor-col-resize justify-center left-0" style="min-width: 0px; grid-area: drag;"></div><div class="x-theme-responsePane max-h-full h-full bg-surface rounded-md border border-border-subtle overflow-hidden relative" style="min-width: 0px; grid-area: right;"><div class="h-full w-full grid grid-rows-[auto_minmax(0,1fr)] grid-cols-1"><div class="text-text-subtle w-full flex-shrink-0 -mb-1.5 flex-row flex items-center"><div class="grid grid-cols-[auto_minmax(4rem,1fr)_auto] cursor-default select-none whitespace-nowrap w-full pl-3 overflow-x-auto font-mono text-sm hide-scrollbars"><div class="w-full flex-shrink-0 flex-row gap-2 flex items-center"><span class="font-mono min-w-0 text-success">200 OK</span><span>•</span><span class="font-mono" title="DNS: --
+HEADER: 1.2 s
+TOTAL: 1.3 s">1.3 s</span><span>•</span><span class="font-mono" title="15 bytes
+15 bytes compressed">15 B</span></div><span></span><div class="justify-self-end flex-shrink-0"><button type="button" class="m-0.5 text-text-subtle group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Show response history" aria-hidden="false" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg></div></button></div></div></div><div class="overflow-hidden flex flex-col min-h-0"><div class="ml-3 mr-3 mb-3 min-h-0 flex-1 tabs-container h-full grid grid-rows-[auto_minmax(0,1fr)] grid-cols-1"><div role="tablist" aria-label="Response" class="mt-0.5 -mb-1.5 flex items-center hide-scrollbars overflow-x-auto overflow-y-visible  py-1 pl-3 -ml-5 pr-1"><div class="flex flex-row flex-shrink-0 w-full"><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-25"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center">Response</div><div class="ml-1"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down ml-1 text-text-subtle transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="m6 9 6 6 6-6"></path></svg></div></div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-25"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center">Request</div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-25"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center">Headers</div><div class="ml-1"><div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">3/3</div></div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-25"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus"><div class="truncate w-full text-center">Cookies</div></button></div><div class="relative mr-2" role="button" tabindex="-1" aria-disabled="false" aria-roledescription="draggable" aria-describedby="DndDescribedBy-25"><button type="button" class="flex items-center rounded whitespace-nowrap !px-2 ml-[1px] outline-none ring-none focus-visible-or-class:outline-2 text-text-subtle border-border-subtle x-theme-button x-theme-button--solid x-theme-button--solid--custom border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent focus-visible:outline-2 outline-border-focus" aria-haspopup="true" aria-expanded="false"><div class="truncate w-full text-center">Timeline</div><div class="ml-1"><div class="flex items-center"><div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">13</div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down ml-1 text-text-subtlest transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="m6 9 6 6 6-6"></path></svg></div></div></button></div></div></div><div id="DndDescribedBy-25" style="display: none;">
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div><div id="DndLiveRegion-25" role="status" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%); white-space: nowrap;"></div><div tabindex="-1" data-tab="body" class="tab-content hidden w-full h-full pt-2" data-state="active" aria-hidden="false" style="display: block;"><div class="group relative h-full w-full x-theme-editor bg-surface"><div class="-mr-2 bg-surface cm-wrapper text-base cm-full-height cm-multiline cm-readonly"><div class="cm-editor ͼ1 ͼ3 ͼ4 ͼf"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div class="cm-gutters cm-gutters-before" aria-hidden="true" style="min-height: 54px; position: sticky;"><div class="cm-gutter cm-gutter-lint"><div class="cm-gutterElement cm-activeLineGutter" style="height: 18px;"></div></div><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">9</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 18px;">1</div><div class="cm-gutterElement" style="height: 18px;">2</div><div class="cm-gutterElement" style="height: 18px;">3</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><div class="fold-gutter-icon" tabindex="-1"></div></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 18px;"><div class="fold-gutter-icon" tabindex="-1" data-open=""></div></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" style="tab-size: 4;" class="cm-content cm-lineWrapping" role="textbox" aria-multiline="true" aria-readonly="true" tabindex="-1" data-language="jsonc"><div class="cm-line"><span class="cm-matchingBracket"><span class="ͼ7">{</span></span></div><div class="cm-line">  <span class="ͼb">"status"</span>: <span class="ͼd">"ok"</span></div><div class="cm-line"><span class="cm-matchingBracket"><span class="ͼ7">}</span></span></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms;"><div class="cm-cursor cm-cursor-primary" style="left: 41.1px; top: 1.6px; height: 14.4px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"></div></div></div></div><div class="absolute bottom-2 left-0 right-0 pointer-events-none flex-row gap-1 flex items-center justify-end"><button type="button" class="border !border-border-subtle bg-surface transition-opacity transform-gpu opacity-0 group-hover:opacity-100 hover:!opacity-100 shadow group/button relative flex-shrink-0 !px-0 w-sm x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-sm px-2.5 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Filter response" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-funnel group-hover/button:text-text transform-gpu flex-shrink-0 h-4 w-4 inherit"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg></div></button></div></div></div><div tabindex="-1" data-tab="request" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="w-full h-full pb-2"><div class="rounded-lg border border-dashed border-border-subtle h-full py-2 text-text-subtlest flex items-center justify-center italic">No request body</div></div></div><div tabindex="-1" data-tab="headers" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="overflow-auto h-full pb-4 gap-y-3 flex flex-col pr-0.5"><div class="w-auto grid grid-rows-1 max-h-full flex-0"><div class="x-theme-banner--undefined border border-border border-dashed px-4 py-2 rounded-lg select-auto cursor-auto overflow-auto text-text mb-auto"><details class="group list-none"><summary class="!cursor-default !select-none list-none flex items-center gap-3 focus:outline-none opacity-70"><div class="transition-transform group-open:rotate-90 w-0 h-0 border-t-[0.3em] border-b-[0.3em] border-l-[0.5em] border-r-0 border-t-transparent border-b-transparent border-l-text-subtle"></div><h2>Info</h2></summary><div class="mt-1.5 pb-2"><table class="text-editor font-mono min-w-0 w-full mb-auto"><tbody class="divide-y divide-surface-highlight"><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-text-subtle"><span class="select-text cursor-text">Request URL</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span><div class="flex items-center gap-1"><span class="select-text cursor-text">http://localhost:8080/health</span><button type="button" class="inline-block w-auto !h-auto opacity-50 hover:opacity-100 group/button relative flex-shrink-0 !px-0 w-md x-theme-button x-theme-button--solid x-theme-button--solid--default border max-w-full min-w-0 hocus:opacity-100 whitespace-nowrap outline-none flex-shrink-0 flex items-center outline-0 pointer-events-auto justify-center h-md px-3 rounded-md border-transparent text-text enabled:hocus:text-text enabled:hocus:bg-surface-highlight outline-border-subtle" title="Open in browser" aria-hidden="false"><div class="truncate w-full text-center flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link group-hover/button:text-text transform-gpu flex-shrink-0 h-3.5 w-3.5 inherit"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></div></button></div><span aria-hidden="true"></span></div></td></tr><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-text-subtle"><span class="select-text cursor-text">Remote Address</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>[::1]:8080<span aria-hidden="true"></span></div></td></tr><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-text-subtle"><span class="select-text cursor-text">Version</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>HTTP/1.1<span aria-hidden="true"></span></div></td></tr></tbody></table></div></details></div></div><div class="w-auto grid grid-rows-1 max-h-full flex-0"><div class="x-theme-banner--undefined border border-border border-dashed px-4 py-2 rounded-lg select-auto cursor-auto overflow-auto text-text mb-auto"><details class="group list-none"><summary class="!cursor-default !select-none list-none flex items-center gap-3 focus:outline-none opacity-70"><div class="transition-transform group-open:rotate-90 w-0 h-0 border-t-[0.3em] border-b-[0.3em] border-l-[0.5em] border-r-0 border-t-transparent border-b-transparent border-l-text-subtle"></div><h2 class="flex items-center">Request Headers <div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">3</div></h2></summary><div class="mt-1.5 pb-2"><table class="text-editor font-mono min-w-0 w-full mb-auto"><tbody class="divide-y divide-surface-highlight"><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-primary"><span class="select-text cursor-text">accept</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>*/*<span aria-hidden="true"></span></div></td></tr><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-primary"><span class="select-text cursor-text">content-type</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>application/json<span aria-hidden="true"></span></div></td></tr><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-primary"><span class="select-text cursor-text">user-agent</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>yaak<span aria-hidden="true"></span></div></td></tr></tbody></table></div></details></div></div><div class="w-auto grid grid-rows-1 max-h-full flex-0"><div class="x-theme-banner--undefined border border-border border-dashed px-4 py-2 rounded-lg select-auto cursor-auto overflow-auto text-text mb-auto"><details class="group list-none" open=""><summary class="!cursor-default !select-none list-none flex items-center gap-3 focus:outline-none opacity-70"><div class="transition-transform group-open:rotate-90 w-0 h-0 border-t-[0.3em] border-b-[0.3em] border-l-[0.5em] border-r-0 border-t-transparent border-b-transparent border-l-text-subtle"></div><h2 class="flex items-center">Response Headers <div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">3</div></h2></summary><div class="mt-1.5 pb-2"><table class="text-editor font-mono min-w-0 w-full mb-auto"><tbody class="divide-y divide-surface-highlight"><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-info"><span class="select-text cursor-text">content-length</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>15<span aria-hidden="true"></span></div></td></tr><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-info"><span class="select-text cursor-text">content-type</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>application/json<span aria-hidden="true"></span></div></td></tr><tr><td class="select-none py-0.5 pr-2 h-full align-top max-w-[10rem] text-info"><span class="select-text cursor-text">vary</span></td><td class="select-none py-0.5 break-all align-top max-w-[15rem]"><div class="select-text cursor-text max-h-[12rem] overflow-y-auto grid grid-cols-[auto_minmax(0,1fr)_auto]"><span aria-hidden="true"></span>Origin<span aria-hidden="true"></span></div></td></tr></tbody></table></div></details></div></div></div></div><div tabindex="-1" data-tab="cookies" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="overflow-auto h-full pb-4 gap-y-3 flex flex-col pr-0.5"><div class="w-auto grid grid-rows-1 max-h-full flex-0"><div class="x-theme-banner--undefined border border-border border-dashed px-4 py-2 rounded-lg select-auto cursor-auto overflow-auto text-text mb-auto"><details class="group list-none" open=""><summary class="!cursor-default !select-none list-none flex items-center gap-3 focus:outline-none opacity-70"><div class="transition-transform group-open:rotate-90 w-0 h-0 border-t-[0.3em] border-b-[0.3em] border-l-[0.5em] border-r-0 border-t-transparent border-b-transparent border-l-text-subtle"></div><h2 class="flex items-center">Sent Cookies <div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">0</div></h2></summary><div class="mt-1.5 pb-2"><span class="text-text-subtlest text-sm italic">No Cookies</span></div></details></div></div><div class="w-auto grid grid-rows-1 max-h-full flex-0"><div class="x-theme-banner--undefined border border-border border-dashed px-4 py-2 rounded-lg select-auto cursor-auto overflow-auto text-text mb-auto"><details class="group list-none" open=""><summary class="!cursor-default !select-none list-none flex items-center gap-3 focus:outline-none opacity-70"><div class="transition-transform group-open:rotate-90 w-0 h-0 border-t-[0.3em] border-b-[0.3em] border-l-[0.5em] border-r-0 border-t-transparent border-b-transparent border-l-text-subtle"></div><h2 class="flex items-center">Received Cookies <div aria-hidden="true" class="flex items-center opacity-70 border text-4xs rounded mb-0.5 px-1 ml-1 h-4 font-mono border-border-subtle">0</div></h2></summary><div class="mt-1.5 pb-2"><span class="text-text-subtlest text-sm italic">No Cookies</span></div></details></div></div></div></div><div tabindex="-1" data-tab="timeline" class="tab-content hidden w-full h-full pt-2" data-state="inactive" aria-hidden="true" style="display: none;"><div class="h-full"><div class="grid w-full h-full overflow-hidden" style="grid-template: &quot;left&quot; minmax(0px, 1fr) &quot;drag&quot; 0px &quot;right&quot; minmax(0px, 0fr) / 1fr;"><div class="w-full h-full grid grid-rows-[auto_minmax(0,1fr)]" style="min-width: 0px; grid-area: left;"><span aria-hidden="true"></span><div class="h-full w-full relative grid grid-rows-[auto_minmax(0,1fr)]"><span aria-hidden="true"></span><div class="h-full w-full overflow-y-auto focus:outline-none" tabindex="0"><div style="height: 351px; width: 100%; position: relative;"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+<div id="cm-portal" class="cm-portal"><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div><div class="ͼ1 ͼ3 ͼ4 ͼf" style="position: relative;"></div></div>
+<div id="react-portal"><div data-portal-name="toasts"><div class="absolute right-0 bottom-0 z-50"></div></div><div data-portal-name="dropdown-menu"></div><div data-portal-name="dialog"></div><div data-portal-name="tooltip"></div></div>
+<div id="radix-portal" class="cm-portal"></div>
+
+
+
+
+
+
+</body></html>
