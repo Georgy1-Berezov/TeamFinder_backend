@@ -9,106 +9,181 @@ import org.jetbrains.exposed.sql.SqlExpressionBuilder.minus
 import java.time.LocalDateTime
 
 class ProjectRepository {
-    
-    private fun toProject(row: ResultRow): Project = Project(
+
+    // 1. МАППИНГ: Чистое преобразование
+    private fun rowToProject(row: ResultRow): Project = Project(
         id = row[Projects.id],
         authorId = row[Projects.authorId],
         title = row[Projects.title],
         description = row[Projects.description],
         status = row[Projects.status],
-        likesCount = row[Projects.likesCount], // Читаем лайки
-        createdAt = row[Projects.createdAt].toString()
+        industry = row[Projects.industry],
+        createdAt = row[Projects.createdAt].toString(),
+        isActive = row[Projects.isActive],
+        likesCount = row[Projects.likesCount]
     )
 
+    // 2. ПОИСК ПО ID
     suspend fun findById(id: Int): Project? = dbQuery {
-        Projects.select { Projects.id eq id }.map { toProject(it) }.singleOrNull()
+        Projects.selectAll().where { Projects.id eq id }
+            .map { row ->
+                rowToProject(row).copy(
+                    roles = getRolesSync(id),
+                    tags = getTagsSync(id),
+                    authorName = getUserNameSync(row[Projects.authorId])
+                )
+            }.singleOrNull()
     }
 
+    // 3. СОЗДАНИЕ ПРОЕКТА
     suspend fun create(project: Project): Project? = dbQuery {
-        val insertStatement = Projects.insert {
-            it[authorId] = project.authorId
-            it[title] = project.title
-            it[status] = project.status
-            it[createdAt] = LocalDateTime.now()
-        }
-        insertStatement.resultedValues?.firstOrNull()?.let { toProject(it) }
-    }
+        try {
+            // 1. Вставка проекта
+            val newProjectId = Projects.insert {
+                it[Projects.authorId] = project.authorId
+                it[Projects.title] = project.title
+                it[Projects.description] = project.description
+                it[Projects.status] = project.status
+                it[Projects.industry] = project.industry
+                it[Projects.createdAt] = LocalDateTime.now()
+                it[Projects.isActive] = true
+            }[Projects.id]
 
-    suspend fun getFeed(page: Int, limit: Int) = dbQuery {
-        Projects.selectAll()
-            .limit(limit, ((page - 1) * limit).toLong())
-            .orderBy(Projects.createdAt to SortOrder.DESC)
-            .map { toProject(it) }
-    }
-
-    suspend fun update(id: Int, p: Project) = dbQuery {
-        Projects.update({ Projects.id eq id }) { it[Projects.title] = p.title } > 0
-    }
-
-    suspend fun delete(id: Int) = dbQuery {
-        Projects.deleteWhere { Projects.id eq id } > 0
-    }
-
-    // --- РЕАЛЬНАЯ ЛОГИКА ЛАЙКОВ ---
-    suspend fun toggleLike(projectId: Int, userId: Int): Boolean = dbQuery {
-        // 1. Проверяем, есть ли уже лайк
-        val existingLike = ProjectLikes.select { 
-            (ProjectLikes.projectId eq projectId) and (ProjectLikes.userId eq userId) 
-        }.singleOrNull()
-
-        if (existingLike != null) {
-            // 2. Если лайк есть — удаляем
-            ProjectLikes.deleteWhere { 
-                (ProjectLikes.projectId eq projectId) and (ProjectLikes.userId eq userId) 
+            // 2. МАГИЯ: Увеличиваем счетчик проектов у автора в таблице Users
+            Users.update({ Users.id eq project.authorId }) {
+                it[projectsCount] = Users.projectsCount plus 1
             }
-            // Уменьшаем счетчик
-            Projects.update({ Projects.id eq projectId }) {
-                with(SqlExpressionBuilder) {
-                    it[likesCount] = Projects.likesCount - 1
+            println("📈 [STATS] Projects count incremented for user: ${project.authorId}")
+
+            // 3. Вставка ролей
+            project.roles.forEach { roleData ->
+                ProjectRoles.insert {
+                    it[ProjectRoles.projectId] = newProjectId
+                    it[ProjectRoles.roleName] = roleData.roleName
+                    it[ProjectRoles.requiredSkills] = roleData.requiredSkills
+                    it[ProjectRoles.spotsTotal] = roleData.spotsTotal
+                    it[ProjectRoles.spotsFilled] = 0
                 }
+            }
+
+            // 4. Вставка тегов
+            project.tags.forEach { tagName ->
+                val tagId = Tags.selectAll().where { Tags.name eq tagName }
+                    .map { row -> row[Tags.id] }
+                    .singleOrNull() ?: Tags.insert { t -> t[Tags.name] = tagName }[Tags.id]
+
+                ProjectTags.insert {
+                    it[ProjectTags.projectId] = newProjectId
+                    it[ProjectTags.tagId] = tagId
+                }
+            }
+
+            // 5. Возврат собранного объекта
+            Projects.selectAll().where { Projects.id eq newProjectId }
+                .map { row ->
+                    rowToProject(row).copy(
+                        roles = getRolesSync(newProjectId),
+                        tags = getTagsSync(newProjectId),
+                        authorName = getUserNameSync(project.authorId)
+                    )
+                }.singleOrNull()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    // 4. ЛЕНТА
+    suspend fun getFeed(page: Int, limit: Int): List<Project> = dbQuery {
+        Projects.selectAll()
+            .limit(limit, offset = ((page - 1).coerceAtLeast(0) * limit).toLong())
+            .orderBy(Projects.createdAt to SortOrder.DESC)
+            .map { row ->
+                val id = row[Projects.id]
+                rowToProject(row).copy(
+                    roles = getRolesSync(id),
+                    tags = getTagsSync(id),
+                    authorName = getUserNameSync(row[Projects.authorId])
+                )
+            }
+    }
+
+    // 5. ПУБЛИЧНЫЕ МЕТОДЫ (Для Роутов)
+    suspend fun getTagsForProject(projectId: Int): List<String> = dbQuery { getTagsSync(projectId) }
+    suspend fun getRolesForProject(projectId: Int): List<Role> = dbQuery { getRolesSync(projectId) }
+
+    suspend fun searchByTag(tagName: String): List<Project> = dbQuery {
+        (Projects innerJoin ProjectTags innerJoin Tags)
+            .select(Projects.columns)
+            .where { Tags.name.lowerCase() like "%${tagName.lowercase()}%" }
+            .map { row -> rowToProject(row) }
+    }
+
+    // 6. СОЦИАЛЬНЫЕ ФУНКЦИИ
+    suspend fun toggleLike(projectId: Int, userId: Int): Boolean = dbQuery {
+        val exists = ProjectLikes.selectAll().where { (ProjectLikes.projectId eq projectId) and (ProjectLikes.userId eq userId) }.count() > 0
+        if (exists) {
+            ProjectLikes.deleteWhere { (ProjectLikes.projectId eq projectId) and (ProjectLikes.userId eq userId) }
+            Projects.update({ Projects.id eq projectId }) {
+                it.update(Projects.likesCount, Projects.likesCount minus 1)
             }
             false
         } else {
-            // 3. Если лайка нет — ставим
             ProjectLikes.insert {
                 it[ProjectLikes.projectId] = projectId
                 it[ProjectLikes.userId] = userId
-                it[createdAt] = LocalDateTime.now()
+                it[ProjectLikes.createdAt] = LocalDateTime.now()
             }
-            // Увеличиваем счетчик
             Projects.update({ Projects.id eq projectId }) {
-                with(SqlExpressionBuilder) {
-                    it[likesCount] = Projects.likesCount + 1
-                }
+                it.update(Projects.likesCount, Projects.likesCount plus 1)
             }
             true
         }
     }
 
-    suspend fun incrementViews(id: Int) = true
-   // 1. Добавить комментарий
-    suspend fun addComment(comment: Comment): Comment? = dbQuery {
-        val insertStatement = Comments.insert {
+    suspend fun addComment(comment: Comment): Comment = dbQuery {
+        // 1. Сохраняем сам комментарий
+        val id = Comments.insert {
             it[projectId] = comment.projectId
             it[userId] = comment.userId
             it[content] = comment.content
             it[createdAt] = LocalDateTime.now()
+        }[Comments.id]
+
+        // 2. МАГИЯ УВЕДОМЛЕНИЙ: Оповещаем автора проекта
+        try {
+            // Находим, кто автор этого проекта
+            val projectAuthorId = Projects.select(Projects.authorId)
+                .where { Projects.id eq comment.projectId }
+                .map { it[Projects.authorId] }
+                .singleOrNull()
+
+            // Узнаем имя того, кто оставил комментарий
+            val commenterName = Users.select(Users.username)
+                .where { Users.id eq comment.userId }
+                .map { it[Users.username] }
+                .singleOrNull() ?: "Кто-то"
+
+            // Если комментирует НЕ сам автор — создаем уведомление
+            if (projectAuthorId != null && projectAuthorId != comment.userId) {
+                Notifications.insert {
+                    it[userId] = projectAuthorId
+                    it[title] = "Новый комментарий"
+                    it[content] = "$commenterName оставил комментарий под вашим проектом"
+                    it[type] = "COMMENT"
+                    it[createdAt] = LocalDateTime.now()
+                }
+                println("🔔 Уведомление о комментарии создано для юзера $projectAuthorId")
+            }
+        } catch (e: Exception) {
+            println("⚠️ Не удалось создать уведомление: ${e.message}")
         }
-        
-        insertStatement.resultedValues?.firstOrNull()?.let {
-            Comment(
-                id = it[Comments.id],
-                projectId = it[Comments.projectId],
-                userId = it[Comments.userId],
-                content = it[Comments.content],
-                createdAt = it[Comments.createdAt].toString()
-            )
-        }
+
+        comment.copy(id = id, createdAt = LocalDateTime.now().toString())
     }
 
-    // 2. Получить список комментариев
     suspend fun getComments(projectId: Int): List<Comment> = dbQuery {
-        Comments.select { Comments.projectId eq projectId }
+        Comments.selectAll().where { Comments.projectId eq projectId }
             .orderBy(Comments.createdAt to SortOrder.DESC)
             .map { row ->
                 Comment(
@@ -120,19 +195,46 @@ class ProjectRepository {
                 )
             }
     }
-    // Поиск проектов по названию тега
-    suspend fun searchByTag(tagName: String): List<Project> = dbQuery {
-        (Projects innerJoin ProjectTags innerJoin Tags)
-            .select { Tags.name like "%$tagName%" } // Используем нечувствительный к регистру поиск
-            .orderBy(Projects.createdAt to SortOrder.DESC)
-            .map { toProject(it) }
+
+    // 7. СЛУЖЕБНЫЕ МЕТОДЫ (ВНУТРЕННИЕ)
+    private fun getRolesSync(projectId: Int): List<Role> {
+        return ProjectRoles.selectAll().where { ProjectRoles.projectId eq projectId }.map { row ->
+            Role(
+                id = row[ProjectRoles.id],
+                projectId = row[ProjectRoles.projectId],
+                roleName = row[ProjectRoles.roleName],
+                requiredSkills = row[ProjectRoles.requiredSkills],
+                spotsTotal = row[ProjectRoles.spotsTotal],
+                spotsFilled = row[ProjectRoles.spotsFilled]
+            )
+        }
     }
 
-    // Вспомогательный метод для получения всех тегов проекта (чтобы видеть их в выдаче)
-    suspend fun getTagsForProject(projectId: Int): List<String> = dbQuery {
-        (ProjectTags innerJoin Tags)
-            .slice(Tags.name)
-            .select { ProjectTags.projectId eq projectId }
-            .map { it[Tags.name] }
+    private fun getTagsSync(projectId: Int): List<String> {
+        return (ProjectTags innerJoin Tags).select(Tags.name)
+            .where { ProjectTags.projectId eq projectId }.map { row -> row[Tags.name] }
+    }
+
+    private fun getUserNameSync(userId: Int): String? {
+        return Users.select(Users.username)
+            .where { Users.id eq userId }
+            .map { row -> row[Users.username] }
+            .singleOrNull()
+    }
+
+    suspend fun update(id: Int, p: Project): Boolean = dbQuery {
+        Projects.update({ Projects.id eq id }) {
+            it[Projects.title] = p.title
+            it[Projects.description] = p.description
+        } > 0
+    }
+
+    suspend fun delete(id: Int): Boolean = dbQuery {
+        Projects.deleteWhere { Projects.id eq id } > 0
+    }
+
+    suspend fun incrementViews(projectId: Int) = dbQuery {
+        // Здесь можно добавить логику инкремента viewsCount в таблице Projects
+        true
     }
 }

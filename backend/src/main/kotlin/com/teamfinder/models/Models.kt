@@ -28,20 +28,46 @@ enum class ProjectStage {
 @Serializable
 data class User(
     val id: Int? = null,
-    val username: String,
-    val email: String,
+    val username: String="",
+    val email: String="",
     val firstName: String? = null,
     val lastName: String? = null,
     val avatarUrl: String? = null,
+
+    // --- БЛОК: ОБРАЗОВАНИЕ (из дизайна) ---
+    val age: Int? = null,
+    val university: String? = null,    // "ЮФУ"
+    val faculty: String? = null,       // "САПР"
+    val programCode: String? = null,   // "09.03.02"
+    val city: String? = null,          // "Таганрог"
+    val studyMode: String? = null,
+    // --- БЛОК: ДОСТУПНОСТЬ И СВЯЗЬ ---
+    val schedule: String? = null,      // "2–3 ч/день"
+    val contacts: List<ContactMethod> = emptyList(), // ЗАМЕНИЛИ telegram
+    val portfolioUrl: String? = null,
+
+    // --- СПИСКИ (JSONB) ---
     val skills: List<Skill> = emptyList(),
+    val qualities: List<String> = emptyList(), // "Ответственность, честность"
     val interests: List<String> = emptyList(),
     val goals: String? = null,
-    val portfolioUrl: String? = null,
-    val role: UserRole = UserRole.USER, // КРИТИЧНО ДЛЯ AUTH
-    val isActive: Boolean = true,       // КРИТИЧНО ДЛЯ AUTH
+
+    // --- СТАТИСТИКА (Блок как в Авито) ---
+    val viewsCount: Int = 0,
+    val bookmarksCount: Int = 0,
+    val projectsCount: Int = 0,
+
+    // --- СЛУЖЕБНОЕ ---
+    val isOnline: Boolean = false,     // Зеленая точка в дизайне
+    val role: UserRole = UserRole.USER,
+    val isActive: Boolean = true,
     val createdAt: String? = null
 )
-
+@Serializable
+data class ContactMethod(
+    val type: String,  // "Telegram", "Phone", "VK", "WhatsApp"
+    val value: String  // "@username" или "+7..."
+)
 @Serializable
 data class Skill(
     val name: String,
@@ -64,7 +90,16 @@ data class Project(
     val authorName: String? = null, 
     val likesCount: Int = 0 
 )
-
+// Data class для API
+@Serializable
+data class Notification(
+    val id: Int? = null,
+    val title: String,
+    val content: String,
+    val type: String,
+    val isRead: Boolean = false,
+    val createdAt: String? = null
+)
 @Serializable
 data class Role(
     val id: Int? = null,
@@ -93,26 +128,49 @@ data class ErrorResponse(val error: String)
 // ============================================
 
 object Users : Table("users") {
+    // --- БАЗОВЫЕ ДАННЫЕ ---
     val id = integer("user_id").autoIncrement()
+    val username = varchar("username", 50).uniqueIndex()
     val email = varchar("email", 255).uniqueIndex().nullable()
     val passwordHash = varchar("password_hash", 255).nullable()
-    val username = varchar("username", 50).uniqueIndex()
     val firstName = varchar("first_name", 100)
     val lastName = varchar("last_name", 100).nullable()
     val avatarUrl = text("avatar_url").nullable()
-    val skills = text("skills").default("[]")
-    val interests = text("interests").default("[]")
-    val goals = text("goals").nullable()
-    val rating = decimal("rating", 3, 2).nullable()
-    val responseTimeAvg = integer("response_time_avg").nullable()
+
+    // --- ОБРАЗОВАНИЕ И ЛОКАЦИЯ (из карточки дизайна) ---
+    val age = integer("age").nullable()                     // "19 лет"
+    val university = varchar("university", 255).nullable()  // "ЮФУ"
+    val faculty = varchar("faculty", 100).nullable()        // "САПР"
+    val programCode = varchar("program_code", 50).nullable() // "09.03.02"
+    val studyMode = varchar("study_mode", 50).nullable()    // "очная"
+    val city = varchar("city", 100).nullable()              // "Таганрог"
+
+    // --- ДОСТУПНОСТЬ И КОНТАКТЫ ---
+    val schedule = varchar("schedule", 100).nullable()      // "2–3 ч/день"
+    val contacts = text("contacts").default("[]") // Храним список контактов как JSON
     val portfolioUrl = text("portfolio_url").nullable()
+    val goals = text("goals").nullable()                    // "Цели и пожелания"
+
+    // --- СПИСКИ (храним как JSON строку) ---
+    val skills = text("skills").default("[]")               // "Photoshop, React"
+    val qualities = text("qualities").default("[]")         // "Честность, Порядочность"
+    val interests = text("interests").default("[]")
+
+    // --- СТАТИСТИКА (цифры в профиле) ---
+    val viewsCount = integer("views_count").default(0)      // "47 просмотров"
+    val bookmarksCount = integer("bookmarks_count").default(0) // "12 в избранном"
+    val projectsCount = integer("projects_count").default(0)   // "3 проекта"
+
+    // --- СТАТУСЫ ---
     val role = enumerationByName("role", 20, UserRole::class).default(UserRole.USER)
     val isActive = bool("is_active").default(true)
+    val isOnline = bool("is_online").default(false)         // Зеленая точка в дизайне
+
     val createdAt = datetime("created_at").clientDefault { LocalDateTime.now() }
     val lastActive = datetime("last_active").nullable()
+
     override val primaryKey = PrimaryKey(id)
 }
-
 object UserAuth : Table("user_auth") {
     val id = integer("auth_id").autoIncrement()
     val userId = integer("user_id").references(Users.id, onDelete = ReferenceOption.CASCADE)
@@ -126,6 +184,13 @@ object Tags : Table("tags") {
     val name = varchar("name", 50).uniqueIndex()
     val category = varchar("category", 50).nullable()
     override val primaryKey = PrimaryKey(id)
+}
+object ProfileViews : Table("profile_views") {
+    val viewerId = integer("viewer_id").references(Users.id) // Кто смотрел
+    val targetId = integer("target_id").references(Users.id) // Кого смотрели
+    val viewedAt = datetime("viewed_at").clientDefault { LocalDateTime.now() }
+
+    override val primaryKey = PrimaryKey(viewerId, targetId) // Уникальность связки
 }
 
 object Projects : Table("projects") {
@@ -191,6 +256,18 @@ object Invitations : Table("invitations") {
     val createdAt = datetime("created_at").clientDefault { LocalDateTime.now() }
     override val primaryKey = PrimaryKey(id)
 }
+object Notifications : Table("notifications") {
+    val id = integer("notification_id").autoIncrement()
+    val userId = integer("user_id").references(Users.id, onDelete = ReferenceOption.CASCADE)
+    val title = varchar("title", 255)      // "Новое сообщение", "Вас добавили в избранное"
+    val content = text("content")          // "Кириллов Артём сохранил ваш профиль"
+    val type = varchar("type", 50)         // "LIKE", "BOOKMARK", "RESPONSE", "MESSAGE"
+    val isRead = bool("is_read").default(false)
+    val createdAt = datetime("created_at").clientDefault { LocalDateTime.now() }
+
+    override val primaryKey = PrimaryKey(id)
+}
+
 
 object Messages : Table("messages") {
     val id = integer("message_id").autoIncrement()
@@ -202,7 +279,11 @@ object Messages : Table("messages") {
     val isRead = bool("is_read").default(false)
     override val primaryKey = PrimaryKey(id)
 }
-
+object UserBookmarks : Table("user_bookmarks") {
+    val ownerId = integer("owner_id").references(Users.id, onDelete = ReferenceOption.CASCADE)
+    val targetId = integer("target_id").references(Users.id, onDelete = ReferenceOption.CASCADE)
+    override val primaryKey = PrimaryKey(ownerId, targetId)
+}
 object Comments : Table("comments") {
     val id = integer("comment_id").autoIncrement()
     val projectId = integer("project_id").references(Projects.id, onDelete = ReferenceOption.CASCADE)

@@ -25,7 +25,7 @@ fun Application.configureRouting(jwtConfig: JwtConfig) {
         authRouting(jwtConfig)
         projectRouting(jwtConfig)
         userRouting()
-
+        notificationRouting() // Чтобы Ktor увидел эти пути
         responseRouting()
         uploadRouting()
     }

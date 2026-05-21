@@ -35,7 +35,10 @@ object DatabaseFactory {
                 Invitations,     // 9. Приглашения
                 Messages,         // 10. Сообщения (чаты)
                 ProjectLikes,
-                Comments
+                Comments,
+                ProfileViews,
+                Notifications,
+                UserBookmarks
             )
             
             logger.info("Database synchronized with new schema successfully")
