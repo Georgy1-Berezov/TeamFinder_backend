@@ -1,3 +1,5 @@
+import java.util.Date
+import java.text.SimpleDateFormat
 plugins {
     kotlin("jvm")
     id("io.ktor.plugin")
@@ -69,4 +71,18 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+tasks.register("generateBuildInfo") {
+    val resourcesDir = File(projectDir, "src/main/resources")
+    val buildInfoFile = File(resourcesDir, "build.info")
+
+    doLast {
+        if (!resourcesDir.exists()) resourcesDir.mkdirs()
+        val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
+        buildInfoFile.writeText("build_time=$timestamp")
+    }
+}
+
+tasks.named("processResources") {
+    dependsOn("generateBuildInfo")
 }

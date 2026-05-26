@@ -1,31 +1,52 @@
 package com.teamfinder.plugins
 
+// ЭТИ ИМПОРТЫ ГОВОРЯТ КОТЛИНУ, ГДЕ ИСКАТЬ ТВОИ ФУНКЦИИ
 import com.teamfinder.routes.*
 import com.teamfinder.security.JwtConfig
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.server.http.content.* 
+import io.ktor.server.http.content.*
+import io.ktor.http.*
+import java.util.Properties
+import java.io.File
 
 fun Application.configureRouting(jwtConfig: JwtConfig) {
     routing {
-        // Проверка работоспособности сервера
+        // 1. Проверка жизни сервера
         get("/health") {
             call.respond(mapOf("status" to "ok"))
         }
 
-        // 2. РАЗДАЧА ФАЙЛОВ: Делаем папку "uploads" доступной по ссылке /static/
-        // Теперь если файл лежит в uploads/abc.jpg, он будет доступен как http://localhost:8080/static/abc.jpg
-        static("/static") {
-            files("uploads")
+        // 2. ИНФОРМАЦИЯ О БИЛДЕ
+        get("/info") {
+            val props = Properties()
+            // Пытаемся найти файл build.info в ресурсах
+            val buildInfoStream = Application::class.java.classLoader.getResourceAsStream("build.info")
+
+            val buildTime = if (buildInfoStream != null) {
+                props.load(buildInfoStream)
+                props.getProperty("build_time")
+            } else {
+                "Unknown (Run ./gradlew build first)"
+            }
+
+            call.respond(mapOf(
+                "app" to "TeamFinder Backend",
+                "status" to "running",
+                "last_build_at" to buildTime
+            ))
         }
-        
-        // 3. ПУБЛИЧНЫЕ И СМЕШАННЫЕ МАРШРУТЫ
+
+        // 3. РАЗДАЧА СТАТИКИ (Картинки)
+        staticFiles("/static", File("uploads"))
+
+        // 4. ПОДКЛЮЧЕНИЕ ВСЕХ МАРШРУТОВ ИЗ ПАПКИ ROUTES
         authRouting(jwtConfig)
         projectRouting(jwtConfig)
         userRouting()
-        notificationRouting() // Чтобы Ktor увидел эти пути
+        notificationRouting()
         responseRouting()
         uploadRouting()
     }
