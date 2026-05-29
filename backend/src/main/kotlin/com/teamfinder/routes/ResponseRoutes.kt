@@ -32,6 +32,19 @@ fun Route.responseRouting() {
     authenticate("auth-jwt") {
         route("/responses") {
 
+            // ПОЛУЧИТЬ СВОИ ЗАЯВКИ (ПРОЕКТЫ, В КОТОРЫХ УЧАСТВУЮ)
+            get("/my-projects") {
+                try {
+                    val userId = call.principal<JWTPrincipal>()?.payload?.subject?.toIntOrNull() 
+                        ?: return@get call.respond(HttpStatusCode.Unauthorized)
+                    
+                    val projectIds = responseRepo.getUserParticipationProjects(userId)
+                    call.respond(HttpStatusCode.OK, mapOf("projectIds" to projectIds))
+                } catch (e: Exception) {
+                    call.respond(HttpStatusCode.InternalServerError, ErrorResponse("Server error"))
+                }
+            }
+
             // ОТПРАВИТЬ ОТКЛИК
             post {
                 try {
@@ -52,20 +65,16 @@ fun Route.responseRouting() {
             }
 
             // ПОЛУЧИТЬ ОТКЛИКИ ДЛЯ ПРОЕКТА
-            // 2. ПОЛУЧИТЬ ОТКЛИКИ ДЛЯ ПРОЕКТА (ТЕПЕРЬ БЕЗОПАСНО)
             get("/project/{projectId}") {
                 val projectId = call.parameters["projectId"]?.toIntOrNull() 
                     ?: return@get call.respond(HttpStatusCode.BadRequest)
                 
-                // 1. Получаем ID текущего пользователя из токена
                 val currentUserId = call.principal<JWTPrincipal>()?.payload?.subject?.toIntOrNull() 
                     ?: return@get call.respond(HttpStatusCode.Unauthorized)
 
-                // 2. Спрашиваем у базы: кто автор этого проекта?
                 val project = projectRepo.findById(projectId) 
                     ?: return@get call.respond(HttpStatusCode.NotFound, ErrorResponse("Project not found"))
 
-                // 3. ПРОВЕРКА ПРАВ: Если ты не автор проекта, тебе нельзя видеть список откликов
                 if (project.authorId != currentUserId) {
                     return@get call.respond(
                         HttpStatusCode.Forbidden, 
@@ -73,9 +82,21 @@ fun Route.responseRouting() {
                     )
                 }
 
-                // 4. Если всё ок — отдаем данные
                 val responses = responseRepo.getResponsesForProject(projectId)
                 call.respond(HttpStatusCode.OK, responses)
+            }
+
+            // ПОЛУЧИТЬ УЧАСТНИКОВ ПРОЕКТА
+            get("/project/{projectId}/members") {
+                val projectId = call.parameters["projectId"]?.toIntOrNull() 
+                    ?: return@get call.respond(HttpStatusCode.BadRequest)
+                
+                try {
+                    val members = responseRepo.getProjectMembers(projectId)
+                    call.respond(HttpStatusCode.OK, members)
+                } catch (e: Exception) {
+                    call.respond(HttpStatusCode.InternalServerError, ErrorResponse("Server error"))
+                }
             }
 
             // ПРИНЯТЬ ИЛИ ОТКЛОНИТЬ

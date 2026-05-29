@@ -34,6 +34,35 @@ class ResponseRepository {
             }
     }
 
+    // 2b. Получить список участников проекта (принято/активно)
+    suspend fun getProjectMembers(projectId: Int): List<ProjectMemberData> = dbQuery {
+        (Responses innerJoin Users)
+            .select { 
+                (Responses.projectId eq projectId) and 
+                (Responses.status.inList(listOf("принято", "активно")))
+            }
+            .map { row ->
+                ProjectMemberData(
+                    userId = row[Users.id],
+                    username = row[Users.username],
+                    firstName = row[Users.firstName],
+                    avatarUrl = row[Users.avatarUrl],
+                    roleName = null // можно добавить если нужно
+                )
+            }
+    }
+
+    // 2c. Получить список проектов, в которых участвует пользователь
+    suspend fun getUserParticipationProjects(userId: Int): List<Int> = dbQuery {
+        Responses
+            .select { 
+                (Responses.userId eq userId) and 
+                (Responses.status.inList(listOf("принято", "активно")))
+            }
+            .map { row -> row[Responses.projectId] }
+            .distinct()
+    }
+
     // 3. Изменить статус отклика (Принять/Отклонить)
     suspend fun updateStatus(responseId: Int, newStatus: String): Boolean = dbQuery {
         Responses.update({ Responses.id eq responseId }) {
@@ -55,4 +84,14 @@ data class UserResponseData(
     val username: String,
     val message: String?,
     val status: String
+)
+
+// DTO для участников проекта
+@kotlinx.serialization.Serializable
+data class ProjectMemberData(
+    val userId: Int,
+    val username: String,
+    val firstName: String,
+    val avatarUrl: String?,
+    val roleName: String?
 )
