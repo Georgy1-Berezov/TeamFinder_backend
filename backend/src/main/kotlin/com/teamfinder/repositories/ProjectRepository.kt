@@ -224,10 +224,26 @@ class ProjectRepository {
     }
 
     suspend fun update(id: Int, p: Project): Boolean = dbQuery {
-        Projects.update({ Projects.id eq id }) {
+        val updated = Projects.update({ Projects.id eq id }) {
             it[Projects.title] = p.title
             it[Projects.description] = p.description
+            it[Projects.industry] = p.industry
+            it[Projects.status] = p.status
         } > 0
+
+        if (p.roles.isNotEmpty()) {
+            ProjectRoles.deleteWhere { ProjectRoles.projectId eq id }
+            p.roles.forEach { roleData ->
+                ProjectRoles.insert {
+                    it[ProjectRoles.projectId] = id
+                    it[ProjectRoles.roleName] = roleData.roleName
+                    it[ProjectRoles.requiredSkills] = roleData.requiredSkills
+                    it[ProjectRoles.spotsTotal] = roleData.spotsTotal
+                    it[ProjectRoles.spotsFilled] = 0
+                }
+            }
+        }
+        updated
     }
 
     suspend fun delete(id: Int): Boolean = dbQuery {
