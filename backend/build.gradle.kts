@@ -1,5 +1,6 @@
-import java.util.Date
 import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
     kotlin("jvm")
     id("io.ktor.plugin")

@@ -20,7 +20,8 @@ class ProjectRepository {
         industry = row[Projects.industry],
         createdAt = row[Projects.createdAt].toString(),
         isActive = row[Projects.isActive],
-        likesCount = row[Projects.likesCount]
+        likesCount = row[Projects.likesCount],
+        viewsCount = row[Projects.viewsCount]
     )
 
     // 2. ПОИСК ПО ID
@@ -234,7 +235,8 @@ class ProjectRepository {
     }
 
     suspend fun incrementViews(projectId: Int) = dbQuery {
-        // Здесь можно добавить логику инкремента viewsCount в таблице Projects
-        true
+        Projects.update({ Projects.id eq projectId }) {
+            it.update(Projects.viewsCount, Projects.viewsCount plus 1)
+        }
     }
 }

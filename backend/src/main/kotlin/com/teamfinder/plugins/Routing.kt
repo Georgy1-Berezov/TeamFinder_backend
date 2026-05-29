@@ -49,5 +49,6 @@ fun Application.configureRouting(jwtConfig: JwtConfig) {
         notificationRouting()
         responseRouting()
         uploadRouting()
+        chatRouting()
     }
 }

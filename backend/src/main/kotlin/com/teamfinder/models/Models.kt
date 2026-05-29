@@ -88,7 +88,8 @@ data class Project(
     val roles: List<Role> = emptyList(),
     val tags: List<String> = emptyList(),
     val authorName: String? = null, 
-    val likesCount: Int = 0 
+    val likesCount: Int = 0,
+    val viewsCount: Int = 0
 )
 // Data class для API
 @Serializable
@@ -201,7 +202,8 @@ object Projects : Table("projects") {
     val status = varchar("status", 50).default("идея")
     val deadline = date("deadline").nullable()
     val industry = varchar("industry", 100).nullable()
-    val likesCount = integer("likes_count").default(0) 
+    val likesCount = integer("likes_count").default(0)
+    val viewsCount = integer("views_count").default(0)
     val createdAt = datetime("created_at").clientDefault { LocalDateTime.now() }
     val isActive = bool("is_active").default(true)
     

@@ -24,7 +24,8 @@ data class AppConfig(
                     url = System.getenv("DB_URL") ?: config.getString("database.url"),
                     user = System.getenv("DB_USER") ?: config.getString("database.user"),
                     password = System.getenv("DB_PASSWORD") ?: config.getString("database.password"),
-                    maxPoolSize = config.getInt("database.maxPoolSize")
+                    maxPoolSize = config.getInt("database.maxPoolSize"),
+                    migrate = System.getenv("DB_MIGRATE")?.toBoolean() ?: config.getBoolean("database.migrate")
                 ),
                 security = SecurityConfig(
                     secret = System.getenv("JWT_SECRET") ?: config.getString("security.jwtSecret"),
@@ -64,7 +65,8 @@ data class DatabaseConfig(
     val url: String,
     val user: String,
     val password: String,
-    val maxPoolSize: Int
+    val maxPoolSize: Int,
+    val migrate: Boolean = false
 )
 
 data class SecurityConfig(

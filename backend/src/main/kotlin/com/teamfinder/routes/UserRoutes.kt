@@ -57,13 +57,35 @@ fun Route.userRouting() {
 
     route("/users") {
 
-        // 1. ПОЛУЧИТЬ ПРОФИЛЬ (С уникальными просмотрами)
-        // Оберни GET /{id} в этот блок:
+        // ВАЖНО: /search ДОЛЖЕН БЫТЬ ПЕРЕД /{id}!
+        // Иначе Ktor cматчит "search" как {id}, не сможет распарсить в Int и вернёт 400.
+        authenticate("auth-jwt") {
+            // 1. ПОИСК ПОЛЬЗОВАТЕЛЕЙ
+            get("/search") {
+                val skill = call.request.queryParameters["skill"]
+                val query = call.request.queryParameters["query"]
+
+                val users = when {
+                    !skill.isNullOrBlank() -> userRepository.searchBySkill(skill)
+                    !query.isNullOrBlank() -> userRepository.search(query, 1, 20)
+                    else -> userRepository.getAll(1, 20)
+                }
+                val total = userRepository.count(query ?: "")
+
+                call.respond(
+                    HttpStatusCode.OK, UsersListResponse(
+                        data = users.map { it.toResponse() },
+                        pagination = PaginationInfo(1, 20, total, (total + 19) / 20)
+                    )
+                )
+            }
+        }
+
+        // 2. ПОЛУЧИТЬ ПРОФИЛЬ (С уникальными просмотрами)
         authenticate("auth-jwt", optional = true) {
             get("/{id}") {
                 val targetId = call.parameters["id"]?.toIntOrNull() ?: return@get call.respond(HttpStatusCode.BadRequest)
 
-                // Теперь Principal подтянется, если токен есть в Yaak
                 val principal = call.principal<JWTPrincipal>()
                 val viewerId = principal?.payload?.subject?.toIntOrNull()
 
@@ -76,7 +98,9 @@ fun Route.userRouting() {
                 }
             }
         }
+
         authenticate("auth-jwt") {
+            // 3. ИЗБРАННОЕ
             post("/{id}/bookmark") {
                 val targetId =
                     call.parameters["id"]?.toIntOrNull() ?: return@post call.respond(HttpStatusCode.BadRequest)
@@ -88,7 +112,8 @@ fun Route.userRouting() {
                 val isSaved = userRepository.toggleBookmark(ownerId, targetId)
                 call.respond(HttpStatusCode.OK, mapOf("saved" to isSaved))
             }
-            // 2. СПИСОК ВСЕХ ПОЛЬЗОВАТЕЛЕЙ
+
+            // 4. СПИСОК ВСЕХ ПОЛЬЗОВАТЕЛЕЙ
             get("/") {
                 val page = call.request.queryParameters["page"]?.toIntOrNull() ?: 1
                 val limit = call.request.queryParameters["limit"]?.toIntOrNull() ?: 20
@@ -103,35 +128,31 @@ fun Route.userRouting() {
                     )
                 )
             }
-        }
 
-        authenticate("auth-jwt") {
+            // 5. ОБНОВЛЕНИЕ ПРОФИЛЯ
+            put("/{id}") {
+                val id = call.parameters["id"]?.toIntOrNull()
+                val userId = call.principal<JWTPrincipal>()?.payload?.subject?.toIntOrNull()
 
-            // 3. ОБНОВЛЕНИЕ ПРОФИЛЯ (ИСПРАВЛЕНО: вызываем updateProfile)
-                put("/{id}") {
-                    val id = call.parameters["id"]?.toIntOrNull()
-                    val userId = call.principal<JWTPrincipal>()?.payload?.subject?.toIntOrNull()
-
-                    if (id == null || userId == null || id != userId) {
-                        return@put call.respond(HttpStatusCode.Forbidden, ErrorResponse("Access denied"))
-                    }
-
-                    try {
-                        val updates = call.receive<User>()
-                        // ВЫЗЫВАЕМ ОБНОВЛЕННЫЙ МЕТОД
-                        val success = userRepository.updateProfile(id, updates)
-
-                        if (success) {
-                            call.respond(HttpStatusCode.OK, MessageResponse("Profile updated successfully"))
-                        } else {
-                            call.respond(HttpStatusCode.BadRequest, ErrorResponse("Update failed"))
-                        }
-                    } catch (e: Exception) {
-                        call.respond(HttpStatusCode.BadRequest, ErrorResponse("Invalid data format"))
-                    }
+                if (id == null || userId == null || id != userId) {
+                    return@put call.respond(HttpStatusCode.Forbidden, ErrorResponse("Access denied"))
                 }
 
-            // 4. УДАЛЕНИЕ АККАУНТА
+                try {
+                    val updates = call.receive<User>()
+                    val success = userRepository.updateProfile(id, updates)
+
+                    if (success) {
+                        call.respond(HttpStatusCode.OK, MessageResponse("Profile updated successfully"))
+                    } else {
+                        call.respond(HttpStatusCode.BadRequest, ErrorResponse("Update failed"))
+                    }
+                } catch (e: Exception) {
+                    call.respond(HttpStatusCode.BadRequest, ErrorResponse("Invalid data format"))
+                }
+            }
+
+            // 6. УДАЛЕНИЕ АККАУНТА
             delete("/{id}") {
                 val id = call.parameters["id"]?.toIntOrNull()
                 val userId = call.principal<JWTPrincipal>()?.payload?.subject?.toIntOrNull()
@@ -146,21 +167,7 @@ fun Route.userRouting() {
                     call.respond(HttpStatusCode.NotFound, ErrorResponse("User not found"))
                 }
             }
-
-            // 5. ПОИСК
-            // Улучшенный поиск: GET /users/search?skill=React
-            get("/search") {
-                val skill = call.request.queryParameters["skill"]
-                val query = call.request.queryParameters["query"]
-
-                val users = when {
-                    !skill.isNullOrBlank() -> userRepository.searchBySkill(skill)
-                    !query.isNullOrBlank() -> userRepository.search(query, 1, 20)
-                    else -> userRepository.getAll(1, 20)
-                }
-
-                call.respond(HttpStatusCode.OK, users.map { it.toResponse() })
-            }}
+        }
     }
 }
 

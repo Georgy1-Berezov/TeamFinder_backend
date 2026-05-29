@@ -25,7 +25,9 @@ data class ProjectResponse(
     val industry: String?,
     val createdAt: String?,
     val authorName: String?,
-    val roles: List<Role> = emptyList()
+    val roles: List<Role> = emptyList(),
+    val likesCount: Int = 0,
+    val viewsCount: Int = 0
 )
 
 @Serializable
@@ -201,5 +203,7 @@ fun Project.toResponse() = ProjectResponse(
     industry = this.industry,
     createdAt = this.createdAt,
     authorName = this.authorName,
-    roles = this.roles
+    roles = this.roles,
+    likesCount = this.likesCount,
+    viewsCount = this.viewsCount
 )
