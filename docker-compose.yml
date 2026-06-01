@@ -1,0 +1,63 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    image: teamfinder-app:latest
+    ports:
+      - "10002:8080"
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db:5432/teamfinder
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=ab070303
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ELASTIC_HOST=elasticsearch
+      - ELASTIC_PORT=9200
+      - JWT_SECRET=your-secret-key-change-in-production
+      - UPLOAD_DIR=/tmp/uploads
+    depends_on:
+      - db
+      - redis
+      - elasticsearch
+    volumes:
+      - uploads:/tmp/uploads
+
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: teamfinder
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ab070303
+    ports:
+      - "10003:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "10004:6379"
+    volumes:
+      - redisdata:/data
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.1
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "10005:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+volumes:
+  pgdata:
+  redisdata:
+  esdata:
+  uploads:
